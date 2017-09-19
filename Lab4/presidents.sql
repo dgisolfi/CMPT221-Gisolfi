@@ -23,19 +23,19 @@ For dob use 00:00:00 for HH:MM:SS
 EXPLAIN presidents;
 
 # output the dead presidents sorted in ascending order by number.
-SELECT	P.lname, P.num, P.dob
-FROM	presidents AS P
-WHERE	ORDER BY P.NUM ASC;
+SELECT	lname, num, dob
+FROM	presidents
+WHERE	ORDERBY NUM ASC;
 
 # output the dead presidents sorted in ascending order by last name. 
-SELECT	P.lname, P.num, P.dob
+SELECT	lname, num, dob
 FROM 	presidents AS P
-WHERE 	ORDER BY P.lname ASC;
+WHERE 	ORDERBY lname ASC;
 
 # output the dead presidents sorted in descending order by dob.
-SELECT	P.lname, P.num, P.dob
+SELECT	lname, num, dob
 FROM 	presidents AS P
-WHERE 	ORDER BY P.dob DESC;
+WHERE 	ORDERBY dob DESC;
 
 
 
