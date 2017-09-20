@@ -3,11 +3,11 @@
 #Daniel Gisolfi
 
 #Drop existing table, Create table named presidents and use it
-drop database if exists presidents_db ; 
-create database presidents_db ; 
-use presidents_db ;
+drop database if exists site_db ; 
+create database site_db ; 
+use site_db ;
 
-#Create new table called presidents in presidents_db
+#Create new table called presidents in site_db
 drop table if exists presidents ;
 CREATE TABLE presidents(
 id		INT			AUTO_INCREMENT 	PRIMARY KEY,
@@ -17,7 +17,13 @@ num		INT 		not null,
 dob		DATETIME	not null
 );
 
-For dob use 00:00:00 for HH:MM:SS
+#Populate table
+INSERT INTO presidents (fname, lname, num, dob)
+VALUES ('George', 'Washington', 1,	'1732:02:22' ),             
+        ('Andrew', 'Jackson', 7, '1829:03:04'), 
+        ('Ronald' , 'Reagan', 40, '1911:02:06'),
+		('John','Kennedy',35,'1917:05:29'),
+		('Barack','Obama',44 ,'1961:08:04');
 
 # output the unsorted presidents table
 EXPLAIN presidents;
