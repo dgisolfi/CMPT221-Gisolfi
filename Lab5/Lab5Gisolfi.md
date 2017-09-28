@@ -1,3 +1,24 @@
+# LAB 5 CMPT 221
+
+##Daniel Gisolfi & James Ekstract
+
+**Source insert_data.sql**
+
+```shell
++----+--------+------------+-----+---------------------+
+| id | fname  | lname      | num | dob                 |
++----+--------+------------+-----+---------------------+
+|  1 | George | Washington |   1 | 1732-02-22 00:00:00 |
+|  2 | Andrew | Jackson    |   7 | 1829-03-04 00:00:00 |
+|  3 | Ronald | Reagan     |  40 | 1911-02-06 00:00:00 |
+|  4 | John   | Kennedy    |  35 | 1917-05-29 00:00:00 |
+|  5 | Barack | Obama      |  44 | 1961-08-04 00:00:00 |
++----+--------+------------+-----+---------------------+
+```
+
+**presidents.php**
+
+```php+HTML
 <!DOCTYPE html>
 <html>
 <?php
@@ -53,3 +74,11 @@ else
 mysqli_close( $dbc ) ;
 ?>
 </html>
+```
+
+**Site Output**
+
+![Lab5 site image](file:///Users/daniel/Dropbox/Marist/Sophmore/Fall/Software%20Development%20II/images/Screenshot%202017-09-27%2022.58.09.png)
+
+
+
