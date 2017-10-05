@@ -17,39 +17,40 @@ require( 'includes/connect_db.php' ) ;
 require( 'includes/helpers.php' ) ;
 
 if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
-    $fname = $_POST['num'] ;
+    $num = $_POST['Number'] ;
 
-    $price = $_POST['fname'] ;
+    $fname = $_POST['First Name'] ;
 
-    $lname = $_POST['lname']
+    $lname = $_POST['Last Name'] ;
 
-    if(!empty($num) && !empty($fname) && !empty($lname)) {
-      $result = insert_record($dbc, $num, $fname, $lname) ;
-
-      echo "<p>Added " . $result . " new president(s) ". $num . " @ $" . $fname ." @ $". $lname . " .</p>" ;
+  if (!empty($num) && !empty($fname) && !empty($lname)) {
+    $result = insert_record($dbc, $num, $fname, $lname) ;
+    
+    echo "<p>Added " . $result . " new president(s) ". $num . " @ " . $fname . " @ " . $lname . "</p>" ;
+  } else {
+    
+    echo '<p style="color:red">Please input a Number, First Name and Last Name!</p>' ;
     }
-    else
-      echo '<p style="color:red">Please input a Number, First Name and Last Name!</p>' ;
 }
 
 # Show the records
 show_records($dbc);
 
 # Close the connection
-mysqli_close( $dbc ) ;
+mysqli_close( $dbc) ;
 ?>
 
 <!-- Get inputs from the user. -->
 <form action="ipresidents.php " method="POST">
 <table>
 <tr>
-<td>Num:</td><td><input type="int" name="num"></td>
+<td>Number:</td><td><input type="int" name="num"></td>
 </tr>
 <tr>
-<td>fname:</td><td><input type="text" name="fname"></td>
+<td>First Name:</td><td><input type="text" name="fname"></td>
 </tr>
 <tr>
-<td>lname:</td><td><input type="text" name="fname"></td>
+<td>Last Name:</td><td><input type="text" name="fname"></td>
 </tr>
 </table>
 <p><input type="submit" ></p>
