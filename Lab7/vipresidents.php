@@ -37,18 +37,16 @@ if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
 
     if(!empty($num) && !empty($fname) && !empty($lname)) {
       if(!valid_number($num)){
-        echo '<p>Please give a valid number.</p>'
+        echo '<p>Please give a valid number.</p>';
       }
       else if (!valid_name($fname)){
-        echo '<p>Please complete the first name.</p>'
+        echo '<p>Please complete the first name.</p>';
       }
       else if (!valid_name($lname)){
-        echo '<p>Please complete the last name.</p>'
-      }
-      else{
+        echo '<p>Please complete the last name.</p>';
+      }else{
         $result = insert_record($dbc, $num, $fname, $lname) ;
-      }
-
+    }
       #echo "<p>Added " . $result . " new president(s) ". $num . " @ $" . $fname . " . @ $" . $lname . " .</p>" ;
     } else
       echo '<p style="color:red">Please input a President number, first, and last name!</p>' ;
