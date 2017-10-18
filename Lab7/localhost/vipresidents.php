@@ -35,28 +35,26 @@ if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
     $fname = $_POST['fname'] ;
     $lname = $_POST['lname'];
 
-    if(!empty($num) && !empty($fname) && !empty($lname)) {
       if(!valid_number($num)){
-        echo '<p>Please give a valid number.</p>';
+        echo '<p style="color:red"> Please give a valid number.</p>';
       }
       else if (!valid_name($fname)){
-        echo '<p>Please complete the first name.</p>';
+        echo '<p style="color:red">Please complete the first name.</p>';
       }
       else if (!valid_name($lname)){
-        echo '<p>Please complete the last name.</p>';
+        echo '<p style="color:red">Please complete the last name.</p>';
       }else{
-        $result = insert_record($dbc, $num, $fname, $lname) ;
+        $result = insert_record($dbc, $num, $fname, $lname);
+        echo "<p>Added " . $result . " new president(s) ". $num . " @ $" . $fname . " . @ $" . $lname . " .</p>" ;
     }
-      #echo "<p>Added " . $result . " new president(s) ". $num . " @ $" . $fname . " . @ $" . $lname . " .</p>" ;
-    } else
-      echo '<p style="color:red">Please input a President number, first, and last name!</p>' ;
+      
 }
 
 # Show the records
 show_records($dbc);
 
 # Close the connection
-mysqli_close( $dbc ) ;
+mysqli_close($dbc) ;
 ?>
 
 <!-- Get inputs from the user. -->

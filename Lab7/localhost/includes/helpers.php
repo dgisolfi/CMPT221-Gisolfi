@@ -16,7 +16,7 @@ function show_records($dbc) {
   		# But...wait until we know the query succeed before
   		# rendering the table start.
   		echo '<H1>Presidents</H1>' ;
-  		echo '<TABLE>';
+  		echo '<TABLE border>';
   		echo '<TR>';
   		echo '<TH>Number</TH>';
   		echo '<TH>First Name</TH>';
