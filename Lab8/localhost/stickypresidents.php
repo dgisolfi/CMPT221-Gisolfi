@@ -61,13 +61,16 @@ mysqli_close($dbc) ;
 <form action="stickypresidents.php" method="POST">
 <table>
 <tr>
-<td>Number:</td><td><input type="text" name="num"></td>
+<td>Number:</td><td><input type="text" name="num" value="<?php if
+(isset($_POST['num'])) echo $_POST['num']; ?>"></td>
 </tr>
 <tr>
-<td>First Name:</td><td><input type="text" name="fname"></td>
+<td>First Name:</td><td><input type="text" name="fname" value="<?php if
+(isset($_POST['fname'])) echo $_POST['fname']; ?>"></td>
 </tr>
 <tr>
-<td>Last Name:</td><td><input type="text" name="lname"></td>
+<td>Last Name:</td><td><input type="text" name="lname" value="<?php if
+(isset($_POST['lname'])) echo $_POST['lname']; ?>"></td>
 </tr>
 </table>
 <p><input type="submit" ></p>
