@@ -2,21 +2,42 @@
 Create a site for Limbo using CSS
 Authors: James Ekstract, Daniel Gisolfi
 Version 0.1 -->
-<!-- Forked from master by James -->
 
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="LimboPage.css"> 
+		<link rel="stylesheet" type="text/css" href="limboStyle.css"> 
 	</head>
 	<body>
+		<ul>
+		  <li><a class="active" href="home.html">Home</a></li>
+		  <li><a href="lost.html">Lost</a></li>
+		  <li><a href="found.html">Found</a></li>
+		  <li><a href="AdminLogin.html">Admin</a></li>
+		</ul>
 		<h1> Limbo </h1>
 		<p> Welcome to Limbo, a lost and found database for Marist College. </p>
-		<div>
-			<input class="button" type="button" onclick="location.href='lost.html'" value= "Lost something">
-			<input class="button" type="button" onclick="location.href='found.html'" value= "Found something">
-			<input class="button" type="button" onclick="location.href='AdminLogin.html'" value= "Admin">
-			<input class="button" type="button" onclick="location.href='ql.html'" value= "Quick Links">
-		</div>
+		<table id="quicklinks" style="width:60%">
+		  <tr>
+		    <th>Item</th>
+		    <th>Status</th> 
+		    <th>Date/Time</th>
+		  </tr>
+		  <tr>
+		    <td>Half of a Calf</td>
+		    <td>Missing</td>
+		    <td>April 26 1998</td>
+		  </tr>
+		  <tr>
+		    <td>Wallet</td>
+		    <td>Found</td>
+		    <td>Sep 13 2017</td>
+		  </tr>
+		  <tr>
+		    <td>Backpack</td>
+		    <td>Missing</td>
+		    <td>Oct 13 2017</td>
+		  </tr>
+		</table>
 	</body>
 </html>
