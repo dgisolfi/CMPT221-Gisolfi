@@ -1,0 +1,61 @@
+/*LimboPage.css
+Create a site for Limbo using CSS
+Authors: James Ekstract, Daniel Gisolfi
+Version 0.1*/
+
+
+h1 {
+	color: black;
+	text-align: center;
+	font-size: 40px;
+}
+
+p{
+	background-color: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+}
+
+h2.page {
+    background-color: lightblue;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: lightblue;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: gray}
+
+.button:active {
+  background-color: #lightblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+}
