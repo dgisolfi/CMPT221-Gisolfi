@@ -1,4 +1,4 @@
-/*LimboPage.css
+/*limboStyle.css
 Create a site for Limbo using CSS
 Authors: James Ekstract, Daniel Gisolfi
 Version 0.1*/
@@ -56,6 +56,4 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-}
-
 }
