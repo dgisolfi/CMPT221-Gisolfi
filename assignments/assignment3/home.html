@@ -9,42 +9,70 @@ Version 0.1 -->
 		<link rel="stylesheet" type="text/css" href="limboStyle.css"> 
 	</head>
 	<body>
-		<ul>
-		  <li><a class="active" href="home.html">Home</a></li>
-		  <li><a href="lost.html">Lost</a></li>
-		  <li><a href="found.html">Found</a></li>
-		  <li><a href="AdminLogin.html">Admin</a></li>
-		</ul>
-		<div>
-			<h1> Limbo </h1>
-			<h2> Welcome to Limbo, a lost and found database for Marist College. </h>
-			<p>The following are the most recent records entered into the Limbo database.</p>
-		</div>
-		<table id="quicklinks">
-		  <tr>
-		    <th>Item</th>
-		    <th>Status</th> 
-		    <th>Date/Time</th>
-		    <th>Location</th>
-		  </tr>
-		  <tr>
-		    <td>Half of a Calf</td>
-		    <td>Missing</td>
-		    <td>April 26 1998</td>
-		    <td>Hancock</td>
-		  </tr>
-		  <tr>
-		    <td>Wallet</td>
-		    <td>Found</td>
-		    <td>Sep 13 2017</td>
-		    <td>MCann</td>
-		  </tr>
-		  <tr>
-		    <td>Backpack</td>
-		    <td>Missing</td>
-		    <td>Oct 13 2017</td>
-		    <td>Donnelly</td>
-		  </tr>
-		</table>
+		<!-- container -->
+ 		<div id="container">
+ 			<!--  header -->
+ 			<div id="header">
+	  			<div id="logo">Limbo</div>
+		  			<div id="top_info">Marist College lost and found</div>
+		  			<div id="navbar">
+			   			<ul>
+						  <li><a class="active" href="home.html">Home</a></li>
+						  <li><a href="lost.html">Lost</a></li>
+						  <li><a href="found.html">Found</a></li>
+						  <li><a href="AdminLogin.html">Admin</a></li>
+						</ul>
+	   				</div>
+	  			</div>
+	  		<!-- content area -->
+	  		<div id="content_area">
+		   		<div id="banner">
+		   			<p>Welcome to Limbo, a lost and found database for Marist College. Individual records of lost or found items can be submited by following the links above.</p>
+
+		   			<p>Below you can find recent missing or found items as wells as links to found items sorted by type.</p>
+
+	   			 </div>
+	   			<div id="left_col">
+		   			<h1>Recent Item Records</h1>
+		   			<table id="quicklinks">
+					  <tr>
+					    <th>Item</th>
+					    <th>Status</th> 
+					    <th>Date/Time</th>
+					    <th>Location</th>
+					  </tr>
+					  <tr>
+					    <td>Half of a Calf</td>
+					    <td>Missing</td>
+					    <td>April 26 1998</td>
+					    <td>Hancock</td>
+					  </tr>
+					  <tr>
+					    <td>Wallet</td>
+					    <td>Found</td>
+					    <td>Sep 13 2017</td>
+					    <td>MCann</td>
+					  </tr>
+					  <tr>
+					    <td>Backpack</td>
+					    <td>Missing</td>
+					    <td>Oct 13 2017</td>
+					    <td>Donnelly</td>
+					  </tr>
+					</table>
+		   		</div>
+	   			<div id="right_col">
+		   			<h1>Quick Links</h1>
+		   			<p><a id="link" href="default.asp" target="_blank">Lost Cell Phones</a></p>
+		   			<p><a id="link" href="default.asp" target="_blank">Lost Wallets</a></p>
+		   			<p><a id="link" href="default.asp" target="_blank">Lost Backpacks</a></p>
+		   			<p><a id="link" href="default.asp" target="_blank">Lost Marist ID's</a></p>
+		   			<p><a id="link" href="default.asp" target="_blank">Lost Computers</a></p>
+	   			</div>
+	  		</div>
+	  		<!-- footer -->
+	  		<div id="footer"></div>
+  		<!-- end container -->
+ 		</div>
 	</body>
 </html>
