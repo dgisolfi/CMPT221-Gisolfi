@@ -3,6 +3,9 @@ Create a site for Limbo using CSS
 Authors: James Ekstract, Daniel Gisolfi
 Version 0.1*/
 
+body {
+    background-color: lightgray;
+}
 
 h1 {
 	color: black;
@@ -10,20 +13,23 @@ h1 {
 	font-size: 40px;
 }
 
+h2 {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+}
+
 p{
 	background-color: none;
   color: black;
   padding: 10px;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
+  
 }
 
-h2.page {
-    background-color: lightblue;
-    color: black;
-    padding: 10px;
-    text-align: center;
-}
+
 
 .button {
   display: inline-block;
@@ -60,16 +66,18 @@ input[type=text], select {
 
 table {
     border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
+    width: 50%;
+    margin: 0px ;
+    padding: 100px;
+
 }
 
 th, td {
-    text-align: left;
+    text-align: center;
     padding: 8px;
 }
 
-tr:nth-child(even){background-color: lightgray}
+tr:nth-child(even){background-color: white}
 
 th {
     background-color: lightblue;
