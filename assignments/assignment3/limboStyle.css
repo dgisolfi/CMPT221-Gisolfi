@@ -72,54 +72,50 @@ body {
 	padding:20px;
 	clear: both;
 	color: white;
-	margin: 5px;
+	margin: 10px;
 }
 
-#left_col { 
-	float:left; 
-	width:250px; 
+#table { 
+	float:center; 
+	margin: 10px;
 	padding:20px; 
-	height:300px; 
+	height:200px; 
 	border:1px solid #333; 
-	color:#FFF; 
-	background:#000; 
+	color:black; 
+	background:gray; 
 }
-#left_col table {
-	border-collapse: collapse;
-	width: 50px;
-	margin: 0px ;
-	padding: 10px;
-	font-size:14px;
+#table table {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
-#left_col th, td {
-	text-align: center;
-	padding: 4px;
+#table th, td {
+	border: 1px solid #ddd;
+  padding: 8px;
 }
-#left_col h1{
-	font-size:20px;
+#table th{
+ 	padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: lightblue;
+  color: white;
 }
+#table tr:nth-child(even){background-color: white;}
+#table tr:nth-child(odd){background-color: lightgray;}
 
-#right_col { 
-	float:right; 
-	width:250px; 
-	height:300px; 
-	border:1px solid #333; 
-	color:#FFF; 
-	background:#000; 
-	padding:20px; 
-}
-#right_col h1{
+#table h1{
 	font-size:20px;
+	color:white;
 }
 
 /* unvisited link */
 #link:link {
-  color: white;
-  font-size:18px;
+  color: black;
+  font-size:14px;
 }
 /* visited link */
 #link:visited {
-  color: green;
+  color: blue;
 }
 /* mouse over link */
 #link:hover {
@@ -127,16 +123,27 @@ body {
 }
 /* selected link */
 #link:active {
-  color: blue;
+  color: lightblue;
 }
 
 #footer { 
-	padding:10px; 
+	padding:1px; 
 	clear:both; 
 }
 
 /*Lost Page and Found Page*/
-#textfeild{
+#form{
+	background:#666;
+	height:750px; 
+	padding:20px;
+	clear: both;
+	color: white;
+	margin: 10px;
+}
+#form h1, p{
+	text-align: center;
+}
+#text{
 	width: 50%;
 	padding: 12px 10px;
 	margin: 8px 0;
@@ -147,21 +154,34 @@ body {
 }
 #button {
 	display: inline-block;
-	padding: 15px 25px;
+	padding: 15px 10px;
 	font-size: 24px;
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
 	outline: none;
-	color: black;
+	color: white;
 	background-color: lightblue;
 	border: none;
 	border-radius: 15px;
 	box-shadow: 0 9px #999;
 }
-#button:hover {background-color: gray}\
+#button:hover {
+	background-color: gray
+}
 #button:active {
-	background-color: #lightblue;
+	background-color:lightblue;
 	box-shadow: 0 5px #666;
 	transform: translateY(4px);
+}
+
+/*Admin Login Page*/
+
+#loginform{
+	background:#666;
+	height:300px; 
+	padding:20px;
+	clear: both;
+	color: white;
+	margin: 10px;
 }
