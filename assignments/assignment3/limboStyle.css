@@ -1,3 +1,4 @@
+
 /*limboStyle.css
 Create a site for Limbo using CSS
 Authors: James Ekstract, Daniel Gisolfi
@@ -92,6 +93,7 @@ body {
 #table th, td {
 	border: 1px solid #ddd;
   padding: 8px;
+  white-space: nowrap;
 }
 #table th{
  	padding-top: 12px;
