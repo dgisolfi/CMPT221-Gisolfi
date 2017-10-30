@@ -1,37 +1,23 @@
-## Welcome to GitHub Pages
+# Welcome to CMPT221-Gisolfi
+## A Repository for the purpose of saving, and devoloping the Limbo project and Labs for CMPT221-Gisolfi with my Lab partner James Ekstract 
 
-You can use the [editor on GitHub](https://github.com/dgisolfi/CMPT221-Gisolfi/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Labs
+Labs 1 - 10 for CMPT221-Gisolfi
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Projects
+Limbo is a lost and found database with a web interface created by James Ekstract and I.
 
-### Markdown
+### [Assignments 1](https://github.com/dgisolfi/CMPT221-Gisolfi/tree/master/assignments/assignment1)
+User Stories for Limbo
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### [Assignments 2](https://github.com/dgisolfi/CMPT221-Gisolfi/tree/master/assignments/assignment2)
+Creating the database for Limbo
 
-```markdown
-Syntax highlighted code block
+### [Assignments 3](https://github.com/dgisolfi/CMPT221-Gisolfi/tree/master/assignments/assignment3)
+Creating the landing pages with HTML and CSS for Limbo
 
-# Header 1
-## Header 2
-### Header 3
+### [Assignments 4](https://github.com/dgisolfi/CMPT221-Gisolfi/tree/master/assignments/assignment4)
+The core functionality of Limbo
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/dgisolfi/CMPT221-Gisolfi/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### [Assignments 5](https://github.com/dgisolfi/CMPT221-Gisolfi/tree/master/assignments/assignment5)
+The Final version of Limbo 
