@@ -116,7 +116,7 @@ body {
 }
 /* visited link */
 #link:visited {
-  color: blue;
+  color: lightblue;
 }
 /* mouse over link */
 #link:hover {
@@ -135,7 +135,7 @@ body {
 /*Lost Page and Found Page*/
 #form{
 	background:#666;
-	height:750px; 
+	height:auto; 
 	padding:20px;
 	clear: both;
 	color: white;
