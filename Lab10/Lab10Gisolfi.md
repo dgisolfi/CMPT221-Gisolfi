@@ -1,268 +1,119 @@
-# LAB 9 CMPT 221
+# LAB 10 CMPT 221
 
 ## Daniel Gisolfi & James Ekstract
 
-### Modify linkypresidents to use the primary key and pass it to a PHP script in the form of a GET request to retrieve the record from the database.
-
-**linkypresidents.php**
+**presidents_login.php**
 
 ```php
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Style-Type" content="text/css" /> 
-    <title>linkypresidents.php</title>
-    <link href="/library/skin/tool_base.css" type="text/css" rel="stylesheet" media="all" />
-    <link href="/library/skin/morpheus-default/tool.css" type="text/css" rel="stylesheet" media="all" />
-    <script type="text/javascript" src="/library/js/headscripts.js"></script>
-    <style>body { padding: 5px !important; }</style>
-  </head>
-  <body>
-<!--
-This PHP script was modified based on result.php in McGrath (2012).
-It demonstrates how to ...
-  1) Connect to MySQL.
-  2) Write a complex query.
-  3) Format the results into an HTML table.
-  4) Update MySQL with form input.
-By Ron Coleman
+<!-- 
+presidents_login.php
+Login script for presidents table
+Authors: James Ekstract, Daniel Gisolfi
+Version 0.1 
 -->
-<!DOCTYPE html>
-<html>
-<?php
-# Connect to MySQL server and the database
-require( 'includes/connect_db.php' ) ;
 
-# Includes these helper functions
+<!DOCTYPE html>
+
+<html>
+	<body>
+		<?php
+		#outputs errors for debugging
+		ini_set('display_errors', TRUE);
+		error_reporting(E_ALL);
+		require('includes/connect_db.php');
+
+		require('includes/presidents_login_tools.php');
+
+		if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
+			$lname = $_POST['lname'];
+			$id = validate($lname) ;
+
+			#check if form is empty
+			if (empty($lname)){
+				#return an error
+				echo '<p style="color:red">Please complete the last name.</p>';
+			#Check if the name is a valid one
+			}else if ($id == -1){
+      			#return an error
+      			echo '<P style=color:red>Login failed please try again.</P>' ;
+			}else{
+				#else load the program
+				load('linkypresidents.php', $id);
+			}
+		}
+		?>
+		<h1>Presidents Login</h1>
+		<form action="presidents_login.php" method="POST">
+			<table>
+			<tr>
+			<td>Last Name:</td><td><input type="text" name="lname" value="<?php if
+			(isset($_POST['lname'])) echo $_POST['lname']; ?>"></td>
+			</tr>
+			</table>
+			<p><input type="submit" ></p>
+		</form>
+ 	</body>
+</html>
+```
+
+
+
+**php_login_tools.php**
+
+```php
+<!-- 
+presidents_login_tools.php
+Login tools for the presidents_login.php file
+Authors: James Ekstract, Daniel Gisolfi
+Version 0.1 
+-->
+
+<?php
+
+
 require( 'includes/helpers.php' ) ;
 
+#hides the page redirect operations.
+function load( $page = 'linkypresidents.php', $id = -1 ){
 
-if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
-  $num = $_POST['num'] ;
-  $fname = $_POST['fname'] ;
-  $lname = $_POST['lname'];
+  #Begin URL with protocol, domain, and current directory.
+  $url = 'http://' . $_SERVER[ 'HTTP_HOST' ] . dirname( $_SERVER[ 'PHP_SELF' ] ) ;
 
-  if(!empty($num) && !empty($fname) && !empty($lname) && valid_number($num)){
-    $result = insert_record($dbc, $num, $fname, $lname);
-  }else if(empty($num) && empty($fname) && empty($lname)) {
-    echo '<p style="color:red"> All fields must contain values</p>';
-  }else if(!valid_number($num)){
-    echo '<p style="color:red"> Please give a valid number.</p>';
-  }else if (!valid_name($fname)){
-    echo '<p style="color:red">Please complete the first name.</p>';
-  }else if (!valid_name($lname)){
-    echo '<p style="color:red">Please complete the last name.</p>';
-  }else{
-    
-    echo "<p>Added " . $result . " new president(s) ". $num . " @ $" . $fname . " . @ $" . $lname . " .</p>" ;
-  }
+  #Remove trailing slashes then append page name to URL and the print id.
+  $url = rtrim( $url, '/\\' ) ;
+  $url .= '/' . $page . '?id=' . $id;
+
+  # Execute redirect then quit.
+  #I used javascript in the echo statemnt because the "header" function could not be called as someone in my code i have defined a header already, this is a work around
+  echo "<script type='text/javascript'> document.location = '$url'; </script>";
+
+  exit() ;
+}
+
+#hides the last name validation operations.
+function validate($lastname = ''){
+	global $dbc;
+
+  # Make the query
+  $query = "SELECT id, lname FROM presidents WHERE lname='" . $lastname . "'" ;
+  // show_query($query);
+
+  # Execute the query
+  $results = mysqli_query( $dbc, $query ) ;
+  check_results($results);
   
+  #echo $results;
 
-}else if($_SERVER[ 'REQUEST_METHOD' ] == 'GET') {
-  if(isset($_GET['id'])){
-    show_record($dbc, $_GET['id']) ;
-  } 
-}
+  # If we get no rows, the login failed
+  if (mysqli_num_rows( $results ) == 0 )
+    return -1 ;
 
-# Show the records
-show_link_records($dbc);  
+  # We have at least one row, so get the frist one and return it
+  $row = mysqli_fetch_array($results, MYSQLI_ASSOC) ;
 
-# Close the connection
-mysqli_close($dbc) ;
-?>
+  $id = $row [ 'id' ] ;
 
-<!-- Get inputs from the user. -->
-<form action="linkypresidents.php" method="POST">
-<table>
-<tr>
-<td>Number:</td><td><input type="text" name="num" value="<?php if
-(isset($_POST['num'])) echo $_POST['num']; ?>"></td>
-</tr>
-<tr>
-<td>First Name:</td><td><input type="text" name="fname" value="<?php if
-(isset($_POST['fname'])) echo $_POST['fname']; ?>"></td>
-</tr>
-<tr>
-<td>Last Name:</td><td><input type="text" name="lname" value="<?php if
-(isset($_POST['lname'])) echo $_POST['lname']; ?>"></td>
-</tr>
-</table>
-<p><input type="submit" ></p>
-</form>
-</html>
-  </body>
-</html>
-```
-
-
-
-**helpers.php**
-
-```php
-<?php
-$debug = true;
-
-# Shows the records in prints
-function show_records($dbc) {
-  # Create a query to get the name and price sorted by price
-  $query = 'SELECT num, fname, lname FROM presidents ORDER BY num ASC' ;
-
-  # Execute the query
-  $results = mysqli_query( $dbc , $query ) ;
-  check_results($results) ;
-
-  # Show results
-  if( $results )
-  {
-      # But...wait until we know the query succeed before
-      # rendering the table start.
-      echo '<H1>President</H1>' ;
-      echo '<TABLE border>';
-      echo '<TR>';
-      echo '<TH>Number</TH>';
-      echo '<TH>First Name</TH>';
-      echo '<TH>Last Name</TH>';
-      echo '</TR>';
-
-      # For each row result, generate a table row
-      while ( $row = mysqli_fetch_array( $results , MYSQLI_ASSOC ) )
-      {
-        echo '<TR>' ;
-        echo '<TD>' . $row['num'] . '</TD>' ;
-        echo '<TD>' . $row['fname'] . '</TD>' ;
-        echo '<TD>' . $row['lname'] . '</TD>';
-        echo '</TR>' ;
-      }
-
-      # End the table
-      echo '</TABLE>';
-
-      # Free up the results in memory
-      mysqli_free_result( $results ) ;
-  }
-}
-
-# Inserts a record into the prints table
-function insert_record($dbc, $num, $fname, $lname) {
-  $query = 'INSERT INTO presidents(num, fname, lname) VALUES (' . $num . ' , "' . $fname . '", "' . $lname . '" )' ;
-  show_query($query);
-
-  $results = mysqli_query($dbc,$query) ;
-  check_results($results) ;
-
-  return $results ;
-}
-
-# Shows the query as a debugging aid
-function show_query($query) {
-  global $debug;
-
-  if($debug)
-    echo "<p>Query = $query</p>" ;
-}
-
-function valid_number($num) {
-  if(empty($num) || !is_numeric($num)){
-    return false ;   
-  } else {
-    $num = intval($num) ;      
-    if($num <= 0)         
-      return false ;
-  }
-  return true ; 
-}
-
-function valid_name($input) {
-  if(empty($input) || !is_string($input)){
-    return false ;   
-  }
-  return true ; 
-}
-
-# Checks the query results as a debugging aid
-function check_results($results) {
-  global $dbc;
-
-  if($results != true)
-    echo '<p>SQL ERROR = ' . mysqli_error( $dbc ) . '</p>'  ;
-}
-
-# Shows the link records in prints
-function show_link_records($dbc) {
-  # Create a query to get the name and price sorted by price
-  $query = 'SELECT id, num, lname FROM presidents ORDER BY num ASC' ;
-
-  # Execute the query
-  $results = mysqli_query( $dbc , $query ) ;
-  check_results($results) ;
-
-  # Show results
-  if( $results )
-  {
-      # But...wait until we know the query succeed before
-      # rendering the table start.
-      echo '<H1>Presidents</H1>' ;
-      echo '<TABLE border>';
-      echo '<TR>';
-      echo '<TH>Number</TH>';
-      echo '<TH>Last Name</TH>';
-      echo '</TR>';
-
-      # For each row result, generate a table row
-      while ( $row = mysqli_fetch_array( $results , MYSQLI_ASSOC ) )
-      {
-        #Create link
-        $alink = '<A HREF=linkypresidents.php?id=' . $row['id']  . '>' . $row['num'] . '</A>' ;
-        echo '<TR>' ;
-        echo '<TD ALIGN=right>' . $alink . '</TD>' ;
-        echo '<TD>' . $row['lname'] . '</TD>';
-        echo '</TR>' ;
-      }
-      # End the table
-      echo '</TABLE>';
-
-      # Free up the results in memory
-      mysqli_free_result( $results ) ;
-  }
-}
-
-function show_record($dbc, $id) {
-  # Create a query to get the name and price sorted by price
-  $query = 'SELECT id, num, lname, fname FROM presidents WHERE id = ' . $id ;
-
-  # Execute the query
-  $results = mysqli_query( $dbc , $query ) ;
-  check_results($results) ;
-
-  # Show results
-  if( $results )
-  {
-      # But...wait until we know the query succeed before
-      # rendering the table start.
-      echo '<H1>President Info</H1>' ;
-      echo '<TABLE border>';
-      echo '<TR>';
-      echo '<TH>Number</TH>';
-      echo '<TH>First Name</TH>';
-      echo '<TH>Last Name</TH>';
-      echo '</TR>';
-
-      # For each row result, generate a table row
-      while ( $row = mysqli_fetch_array( $results , MYSQLI_ASSOC ) )
-      {
-        echo '<TR>' ;
-        echo '<TD>' . $row['num'] . '</TD>' ;
-        echo '<TD>' . $row['fname'] . '</TD>';
-        echo '<TD>' . $row['lname'] . '</TD>';
-        echo '</TR>' ;
-      }
-
-      # End the table
-      echo '</TABLE>';
-
-      # Free up the results in memory
-      mysqli_free_result( $results ) ;
-  }
+  return intval($id) ;
 }
 
 ?>
@@ -270,25 +121,20 @@ function show_record($dbc, $id) {
 
 
 
-### Before submitting a new president
+### Input no President
 
-<img src="file:///Users/daniel/code-repos/CMPT221-Gisolfi/Lab9/localhost/images/a.png" width="300px">
-
-### Click one of the president links
-
-<img src="file:///Users/daniel/code-repos/CMPT221-Gisolfi/Lab9/localhost/images/b.png" width="300px">
-
-### input a new president
-
-<img src="file:///Users/daniel/code-repos/CMPT221-Gisolfi/Lab9/localhost/images/c.png" width="300px">
-
-### Click on the new president
-
-<img src="file:///Users/daniel/code-repos/CMPT221-Gisolfi/Lab9/localhost/images/d.png" width="300px">
-
-### Press submit with no values in the form
-
-<img src="file:///Users/daniel/code-repos/CMPT221-Gisolfi/Lab9/localhost/images/e.png" width="300px">
+<img src="file:///Users/daniel/code-repos/CMPT221-Gisolfi/Lab10/images/a.png" width="300px">
 
 
 
+
+
+### Input a president not in the table
+
+<img src="file:///Users/daniel/code-repos/CMPT221-Gisolfi/Lab10/images/b.png" width="300px">
+
+
+
+### Input a President in the database
+
+<img src="file:///Users/daniel/code-repos/CMPT221-Gisolfi/Lab10/images/c.png" width="300px">

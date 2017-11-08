@@ -7,24 +7,22 @@ Version 0.1
 
 <?php
 
+
 require( 'includes/helpers.php' ) ;
 
 #hides the page redirect operations.
 function load( $page = 'linkypresidents.php', $id = -1 ){
 
-  # Begin URL with protocol, domain, and current directory.
-  // $url = 'http://' . $_SERVER[ 'HTTP_HOST' ] . dirname( $_SERVER[ 'PHP_SELF' ] ) ;
+  #Begin URL with protocol, domain, and current directory.
+  $url = 'http://' . $_SERVER[ 'HTTP_HOST' ] . dirname( $_SERVER[ 'PHP_SELF' ] ) ;
 
-  # Remove trailing slashes then append page name to URL and the print id.
-  // $url = rtrim( $url, '/\\' ) ;
-  // $url .= '/' . $page . '?id=' . $id;
+  #Remove trailing slashes then append page name to URL and the print id.
+  $url = rtrim( $url, '/\\' ) ;
+  $url .= '/' . $page . '?id=' . $id;
 
-  $url = "https://www.google.com";
   # Execute redirect then quit.
-  session_start();
-  print ('id =' . $id);
-
-  header( 'Location: ' . $url) ;
+  #I used javascript in the echo statemnt because the "header" function could not be called as someone in my code i have defined a header already, this is a work around
+  echo "<script type='text/javascript'> document.location = '$url'; </script>";
 
   exit() ;
 }
@@ -35,12 +33,13 @@ function validate($lastname = ''){
 
   # Make the query
   $query = "SELECT id, lname FROM presidents WHERE lname='" . $lastname . "'" ;
-  show_query($query);
+  // show_query($query);
 
   # Execute the query
   $results = mysqli_query( $dbc, $query ) ;
   check_results($results);
-  echo $results;
+  
+  #echo $results;
 
   # If we get no rows, the login failed
   if (mysqli_num_rows( $results ) == 0 )

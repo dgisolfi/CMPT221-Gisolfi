@@ -10,6 +10,9 @@ Version 0.1
 <html>
 	<body>
 		<?php
+		#outputs errors for debugging
+		ini_set('display_errors', TRUE);
+		error_reporting(E_ALL);
 		require('includes/connect_db.php');
 
 		require('includes/presidents_login_tools.php');
@@ -18,14 +21,16 @@ Version 0.1
 			$lname = $_POST['lname'];
 			$id = validate($lname) ;
 
-			echo "hi";
-			echo"<p>Query = $id</p>";
-
+			#check if form is empty
 			if (empty($lname)){
+				#return an error
 				echo '<p style="color:red">Please complete the last name.</p>';
+			#Check if the name is a valid one
 			}else if ($id == -1){
+      			#return an error
       			echo '<P style=color:red>Login failed please try again.</P>' ;
 			}else{
+				#else load the program
 				load('linkypresidents.php', $id);
 			}
 		}
