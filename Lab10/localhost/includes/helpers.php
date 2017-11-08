@@ -82,8 +82,11 @@ function valid_name($input) {
 function check_results($results) {
   global $dbc;
 
-  if($results != true)
+  if($results != true){
     echo '<p>SQL ERROR = ' . mysqli_error( $dbc ) . '</p>'  ;
+  }
+  
+  return true ;
 }
 
 # Shows the link records in prints
