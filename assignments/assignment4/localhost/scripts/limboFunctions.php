@@ -17,7 +17,16 @@ function check_results($results) {
   return true ;
 }
 
-function insert_record($dbc) {
+function search_record($dbc, $item,$status, $firstname, $lastname, $location, $date,$email, $phonenumber, $deatails) {
+  $query = 'INSERT INTO users VALUES' ;
+
+  $results = mysqli_query($dbc,$query) ;
+  check_results($results) ;
+
+  return $results ;
+}
+
+function insert_record($dbc, $item,$status, $firstname, $lastname, $location, $date,$email, $phonenumber, $deatails) {
   $query = 'INSERT INTO users VALUES' ;
 
   $results = mysqli_query($dbc,$query) ;
@@ -27,11 +36,11 @@ function insert_record($dbc) {
 }
 
 
-function validateName($input){
+function validateEmail($input){
 	global $dbc;
 
 	#
-	$query = "SELECT id, lname FROM presidents WHERE lname='" . $lastname . "'" ;
+	$query = "SELECT email FROM users WHERE lname='" . $input . "'" ;
 
 	# Execute the query
   	$results = mysqli_query( $dbc, $query ) ;
@@ -39,12 +48,10 @@ function validateName($input){
 
   	if (mysqli_num_rows( $results ) == 0 ){
     	return false ;
-  	}
+  	}else{
 
-  	 $row = mysqli_fetch_array($results, MYSQLI_ASSOC) ;
-  	 $name = $name['']
-
-  	 return intval($name);
+  	 return true;
+ 	}
 
 }
 
@@ -53,7 +60,7 @@ function validatePass($input){
 	global $dbc;
 
 	#Take the pw passed to the function and hash it 
-	$pw = 
+	$pw = hash($input);
 
 	#Retrieve password from DB and compare input to the actual value
 	$query = "SELECT pass FROM Users WHERE pass='" . $pw . "'" ;
