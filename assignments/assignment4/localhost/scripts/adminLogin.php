@@ -8,21 +8,21 @@ Version 0.1 -->
 ini_set('display_errors', TRUE);
 error_reporting(E_ALL);
 
-require('scripts/redirect');
-require('scripts/limboFunctions.php');
+require('redirect.php');
+require('limboFunctions.php');
 
-if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
-	echo "hallo";
+if (isset($_POST['UserName']) && isset($_POST['PW'])) {
+
 	$userName = $_POST['UserName'];
 	$pw = $_POST['PW'];
-	
+	echo $pw;
 	#Validate username and password
-	$uVal = 5;#validateName();
-	$pVal = 5;#validatePass();
+	$uVal = true;#validateName();
+	$pVal = true;#validatePass();
 	
 	#Ensures no empty fields
 	if (empty($userName) OR empty($pw)){
-		echo '<p style="color:red">Please complete the form Fully.</p';
+		echo '<p style="color:red">Please complete the form Fully.</p>';
 	#Ensure the username is correct
 	}else if ($uVal =! true) {
 		echo '<p style="color:red">User Name Invalid for Account</p>';
@@ -33,14 +33,14 @@ if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
 	}else{
 		redirect('admin.php');
 	}
+}
 ?>
-
 
 <!DOCTYPE HTML>
 
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="limboStyle.css">
+		<link rel="stylesheet" type="text/css" href="limboPages/limboStyle.css">
 	</head>
 	<body>
 		<!-- container -->
@@ -64,8 +64,7 @@ if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
 		   			<h1>Confirm Login</h1>
 		   			<form action="adminLogin.php" method="POST">
 						<br>User Name:<br>
-		  				<input id="text" name="UserName" placeholder="Enter Username" value="<?php if
-						(isset($_POST['UserName'])) echo $_POST['UserName']; ?>" required>
+		  				<input id="text" name="UserName" placeholder="Enter Username" value="" required>
 		  				<br>Password:<br>
 		  				<input id="text" name="PW" placeholder="Enter Password" value="" required>
 			  		</form> 
