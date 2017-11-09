@@ -5,10 +5,15 @@ Version 0.3*/
 
 /*Home Page*/
 html { 
-	font-family: Arial, Helvetica, sans-serif; color:black; 
+	font-family: "Oxygen","Oxygen","Segoe UI","Helvetica Neue",sans-serif;
+	font-weight: 400;
+    color: #3e3e40;
 }
 body { 
 	margin:20; 
+	background-image:url("background.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
 }
 #container { 
 
@@ -16,7 +21,7 @@ body {
 
 #header { 
 	width:100%; 
-	height:13%; 
+	height:9%; 
 	border-bottom:1px solid #c7c7c7; 
 	background: #d6232f;
 	position:absolute;
@@ -30,8 +35,7 @@ body {
 
 #logo img { 
 	float:left; 
-	width:90px; 
-
+	width:65px; 
 	color: white;
 }
 
@@ -48,7 +52,7 @@ body {
 
 #navbar{
 	padding-left:10%;
-	padding-top:1%;
+	padding-top:0;
 }
 
 #navbar ul {
@@ -85,17 +89,43 @@ body {
 	 
 }
 
-#banner { 
-	background:gray;
+/* Homepage top welcome message */
+#banner {
 	height:120px; 
+	line-height:80%;
 	clear: both;
-	color: white;
-	margin: 10px;
-	border:1px solid #333;
+	color: black;
+    -webkit-animation: fadeInUp 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 2s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 2s; /* Internet Explorer */
+    -o-animation: fadeInUp 2s; /* Opera < 12.1 */
+     animation: fadeInUp 2s;
 }
 
 #banner h1 {
 	text-align:center;
+	font-size:32px;
+}
+
+#banner p {
+	font-size:20px;	
+}
+
+@keyframes fadeInUp {
+	/* Source: https://daneden.github.io/animate.css/ */
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
 }
 
 #recentlost { 
@@ -150,8 +180,24 @@ body {
 }
 
 #footer { 
-	padding:1px; 
-	clear:both; 
+	position:fixed;
+	left:0;
+	bottom: 0;
+	width:100%;
+	background-color:gray;
+	border-style:solid;
+	border-width:1px;
+}
+
+#footer-content p {
+	text-align:left;
+	vertical-align: top;
+	color:white;
+	line-height:20%;
+}
+
+#footer-content a {
+	color:white;
 }
 
 /*Lost Page and Found Page*/
