@@ -76,7 +76,7 @@ require('../scripts/showLinkRecords.php');
 						 	<?php
 						 	#Populate recently lost items table
 						 	show_link_records($dbc, "lost");
-
+						 	
 						 	# Close the database connection
 						 	mysqli_close($dbc);
 						 	?>

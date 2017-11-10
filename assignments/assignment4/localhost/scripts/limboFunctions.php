@@ -76,17 +76,23 @@ function validatePass($input){
   	}
 }
 
-/*
+
 function buildingToName($id){
   global $dbc;
 
-  $query = 'SELECT name FROM locations WHERE id = "' .$id. '";'
+  $query = "SELECT name FROM locations WHERE id = " .$id. "";
 
   $results = mysqli_query($dbc, $query);
   check_results($results);
-
-  return $results;
+  $row = mysqli_fetch_array($results, MYSQLI_ASSOC);
+  return $row['name'];
 }
-*/
+
+function console_log( $data ){
+  echo '<script>';
+  echo 'console.log('. json_encode( $data ) .')';
+  echo '</script>';
+}
+
 
 ?>

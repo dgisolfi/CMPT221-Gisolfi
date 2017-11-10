@@ -26,8 +26,8 @@ function show_link_records($dbc, $table) {
     		echo '<TD>' . $alink . '</TD>';
         	echo '<TD>' . $row['status'] . '</TD>';
         	echo '<TD>' . $row['create_date'] . '</TD>';
-        	echo '<TD>' . $row['location_id'] . '</TD>';
-        	//echo '<TD>' . buildingToName($row['location_id']) '</TD>';
+        	//echo '<TD>' . $row['location_id'] . '</TD>';
+        	echo '<TD>' . buildingToName($row['location_id']) . '</TD>';
     		echo '</TR>';	
   		}
 
