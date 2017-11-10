@@ -22,12 +22,12 @@ body {
 }
 
 /* Navigation Bar */
-#navbar{
+.navbar{
 	padding-left:10%;
 	padding-top:0;
 }
 
-#navbar ul {
+.navbar ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 10px;
@@ -35,11 +35,11 @@ body {
 	overflow: hidden;
 	background-color: #d6232f;
 }
-#navbar ul li {
+.navbar ul li {
 	float: left;
 	padding-left:2%;
 }
-#navbar ul li a {
+.navbar ul li a {
 	display: block;
 	color: white;
 	text-align: center;
@@ -48,7 +48,7 @@ body {
 	font-size:17px;
 	
 }
-#navbar ul li a:hover {
+.navbar ul li a:hover {
 	background-color: #111;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
@@ -81,6 +81,10 @@ body {
 	right:0;
 	padding-top:0.6%;
 	padding-right:1%;
+}
+
+.active-page {
+	text-decoration:underline !important;
 }
 
 #header { 
