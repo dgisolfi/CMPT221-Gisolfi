@@ -9,6 +9,8 @@ if (isset($_POST['submit'])) {
 
 	if ($result =! true){
 		echo "Please submit a valid record!";
+	}else{
+		echo "Record Saved in Database";
 	}
 }
 
