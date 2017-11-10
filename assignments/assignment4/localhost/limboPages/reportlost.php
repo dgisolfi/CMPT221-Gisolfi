@@ -15,7 +15,7 @@ Version 0.1 -->
 			<!--  header -->
 			<div id="header">
 				<div id="header-content">
-					<div id="logo"><span title="Home"><a href="home.html"><img src="limbologo.png"></a></span></div>
+					<div id="logo"><span title="Home"><a href="home.php"><img src="limbologo.png"></a></span></div>
 		  			<div class="navbar">
 			   			<ul>
 						  	<li><a href="founditems.php">Found Items</a></li>

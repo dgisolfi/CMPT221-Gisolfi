@@ -55,7 +55,7 @@ require('../scripts/showLinkRecords.php');
 						  <tr>
 						    <th>Item</th>
 						    <th>Status</th> 
-						    <th>Date/Time</th>
+						    <th>Date Reported</th>
 						    <th>Location</th>
 						  </tr>
 			   				<?php
@@ -70,13 +70,13 @@ require('../scripts/showLinkRecords.php');
 						  <tr>
 						    <th>Item</th>
 						    <th>Status</th> 
-						    <th>Date/Time</th>
+						    <th>Date Reported</th>
 						    <th>Location</th>
 						  </tr>
 						 	<?php
 						 	#Populate recently lost items table
 						 	show_link_records($dbc, "lost");
-						 	
+
 						 	# Close the database connection
 						 	mysqli_close($dbc);
 						 	?>

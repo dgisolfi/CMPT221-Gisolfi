@@ -24,8 +24,8 @@ function show_link_records($dbc, $table) {
   			$alink = '<A HREF=linkypresidents.php?id=' . $row['id']  . '>' . $row['name'] . '</A>';
     		echo '<TR>';
     		echo '<TD>' . $alink . '</TD>';
-        	echo '<TD>' . $row['status'] . '</TD>';
-        	echo '<TD>' . $row['create_date'] . '</TD>';
+        	echo '<TD>' . ucwords($row['status']) . '</TD>';
+        	echo '<TD>' . date('m/d/Y', strtotime($row['create_date'])) . '</TD>';
         	//echo '<TD>' . $row['location_id'] . '</TD>';
         	echo '<TD>' . buildingToName($row['location_id']) . '</TD>';
     		echo '</TR>';	
