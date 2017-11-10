@@ -17,18 +17,18 @@ Version 0.1 -->
 			<!--  header -->
 			<div id="header">
 				<div id="header-content">
-					<div id="logo"><span title="Home"><a href="home.html"><img src="limbologo.png"></a></span></div>
+					<div id="logo"><span title="Home"><a href="home.php"><img src="limbologo.png"></a></span></div>
 		  			<div class="navbar">
 			   			<ul>
-						  	<li><a href="founditems.html">Found Items</a></li>
-						 	<li><a href="lostitems.html">Lost Items</a></li>
+						  	<li><a href="founditems.php">Found Items</a></li>
+						 	<li><a href="lostitems.php">Lost Items</a></li>
 						 	<li class="dropdown"><a href="#" class="dropbtn">Report an Item</a>
 						  	<div class="dropdown-content">
-						  		<a href="reportlost.html">Lost</a>
-						  		<a href="reportfound.html">Found</a>
+						  		<a href="reportlost.php">Lost</a>
+						  		<a href="reportfound.php">Found</a>
 						  	</div>
 						  	</li>
-						  	<li class="adminlink active-page"><a href="AdminLogin.html">Admin</a></li>
+						  	<li class="adminlink active-page"><a href="AdminLogin.php">Admin</a></li>
 						</ul>
 					</div>
 				</div>
@@ -36,14 +36,8 @@ Version 0.1 -->
 	  		<!-- content area -->
 	  		<div id="content_area">
 		   		<div id="loginform">
-		   			<h1>Confirm Login</h1>
-					<form action="Limbo.php">
-						<br>User Name:<br>
-		  				<input id="text" name="UserName" value="">
-		  				<br>Password:<br>
-		  				<input id="text" name="PW" value="">
-			  		</form> 
-			  		<input id="button" type="submit" value="Login">
+		   			<h1>Admin Page</h1>
+					<p> Edit and remove records within the Limbo database</p>
 	   			 </div>
    			 	<!-- footer -->
 	  			<div id="footer"></div>
@@ -52,4 +46,3 @@ Version 0.1 -->
 		 </div>
 	</body>
 </html>
-

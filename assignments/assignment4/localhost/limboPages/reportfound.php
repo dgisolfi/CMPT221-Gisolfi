@@ -1,32 +1,34 @@
-<!-- lost.html
+<!-- found.html
 Create a site for Limbo using CSS
 Authors: James Ekstract, Daniel Gisolfi
 Version 0.1 -->
+
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<meta charset = "utf-8">
 		<link rel="stylesheet" type="text/css" href="limboStyle.css">
-		<title>Limbo - Report Lost</title>
+		<title>Limbo - Report Found</title>
 	</head>
 	<body>
+		<body>
 		<!-- container -->
 		<div id="container">
 			<!--  header -->
 			<div id="header">
 				<div id="header-content">
-					<div id="logo"><span title="Home"><a href="home.html"><img src="limbologo.png"></a></span></div>
+					<div id="logo"><span title="Home"><a href="home.php"><img src="limbologo.png"></a></span></div>
 		  			<div class="navbar">
 			   			<ul>
-						  	<li><a href="founditems.html">Found Items</a></li>
-						 	<li><a href="lostitems.html">Lost Items</a></li>
+						  	<li><a href="founditems.php">Found Items</a></li>
+						 	<li><a href="lostitems.php">Lost Items</a></li>
 						 	<li class="dropdown active-page"><a href="#" class="dropbtn">Report an Item</a>
 						  	<div class="dropdown-content">
-						  		<a href="reportlost.html" class="active-page">Lost</a>
-						  		<a href="reportfound.html">Found</a>
+						  		<a href="reportlost.php">Lost</a>
+						  		<a href="reportfound.php" class="active-page">Found</a>
 						  	</div>
 						  	</li>
-						  	<li class="adminlink"><a href="AdminLogin.html">Admin</a></li>
+						  	<li class="adminlink"><a href="AdminLogin.php">Admin</a></li>
 						</ul>
 					</div>
 				</div>
@@ -34,8 +36,8 @@ Version 0.1 -->
 	  		<!-- content area -->
 	  		<div id="content_area">
 		   		<div id="form">
-		   			<h1> Lost Page </h1>
-					<p>Submit records of lost items within the marist campus.</p>
+		   			<h1> Finder Page </h1>
+					<p>Submit records of found items within the marist campus.</p>
 					<form action="Limbo.php">
 						<br>Item:<br>
 					  	<input id="text" name="item" value="">
@@ -63,7 +65,7 @@ Version 0.1 -->
 	  			<div id="footer"></div>
   			<!-- end container -->
    			 </div>
-		</div>
+		 </div>
 	</body>
 </html>
 
