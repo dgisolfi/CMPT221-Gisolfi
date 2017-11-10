@@ -6,65 +6,131 @@ Version 0.1 -->
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<meta charset = "utf-8">
 		<link rel="stylesheet" type="text/css" href="limboStyle.css"> 
+		<title>Limbo - Home</title>
 	</head>
 	<body>
 		<!-- container -->
- 		<div id="container">
- 			<!--  header -->
- 			<div id="header">
-	  			<div id="logo">Limbo</div>
-		  			<div id="top_info">Marist College lost and found</div>
-		  			<div id="navbar">
+		<div id="container">
+			<!--  header -->
+			<div id="header">
+				<div id="header-content">
+					<div id="logo"><span title="Home"><a href="home.html"><img src="limbologo.png"></a></span></div>
+		  			<div class="navbar">
 			   			<ul>
-						  <li><a class="active" href="home.html">Home</a></li>
-						  <li><a href="lost.html">Lost</a></li>
-						  <li><a href="found.html">Found</a></li>
-						  <li><a href="AdminLogin.php">Admin</a></li>
+						  	<li><a href="founditems.html">Found Items</a></li>
+						 	<li><a href="lostitems.html">Lost Items</a></li>
+						 	<li class="dropdown"><a href="#" class="dropbtn">Report an Item</a>
+						  	<div class="dropdown-content">
+						  		<a href="reportlost.html">Lost</a>
+						  		<a href="reportfound.html">Found</a>
+						  	</div>
+						  	</li>
+						  	<li class="adminlink"><a href="AdminLogin.html">Admin</a></li>
 						</ul>
-	   				</div>
-	  			</div>
-	  		<!-- content area -->
-	  		<div id="content_area">
-		   		<div id="banner">
-		   			<p>Welcome to Limbo, a lost and found database for Marist College. Individual records of lost or found items can be submited by following the links above.</p>
-
-		   			<p>Below you can find recent missing or found items as wells as links to found items sorted by type.</p>
-
-	   			 </div>
-	   			<div id="table">
-		   			<h1>Recent Item Records</h1>
-		   			<table id="quicklinks">
-					  <tr>
-					    <th>Item</th>
-					    <th>Status</th> 
-					    <th>Date/Time</th>
-					    <th>Location</th>
-					  </tr>
-					  <tr>
-					    <td><a id="link" href="ql-phone.html">IPhone</a></td>
-					    <td>Missing</td>
-					    <td>Oct 29 2017</td>
-					    <td>Hancock</td>
-					  </tr>
-					  <tr>
-					    <td><a id="link" href="ql-wallet.html">Wallet</a></td>
-					    <td>Found</td>
-					    <td>Sep 13 2017</td>
-					    <td>McCann</td>
-					  </tr>
-					  <tr>
-					    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
-					    <td>Missing</td>
-					    <td>Oct 13 2017</td>
-					    <td>Donnelly</td>
-					  </tr>
-					</table>
+					</div>
+				</div>
+			</div>
+			<!-- content area -->
+			<div id="content_area">
+				<div id="banner">
+					<h1>Limbo</h1>
+					<p>Marist College Lost and Found</p>
+				</div>
+				<div id=quicktables>
+					<div id="recentfound">
+			   			<h1>Recently Found Items</h1>
+			   			<table class="qltable">
+						  <tr>
+						    <th>Item</th>
+						    <th>Status</th> 
+						    <th>Date/Time</th>
+						    <th>Location</th>
+						  </tr>
+						  <tr>
+						    <td><a id="link" href="ql-phone.html">IPhone</a></td>
+						    <td>Missing</td>
+						    <td>Oct 29 2017</td>
+						    <td>Hancock</td>
+						  </tr>
+						  <tr>
+						    <td><a id="link" href="ql-wallet.html">Wallet</a></td>
+						    <td>Found</td>
+						    <td>Sep 13 2017</td>
+						    <td>McCann</td>
+						  </tr>
+						  <tr>
+						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
+						    <td>Missing</td>
+						    <td>Oct 13 2017</td>
+						    <td>Donnelly</td>
+						  </tr>
+						  <tr>
+						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
+						    <td>Missing</td>
+						    <td>Oct 13 2017</td>
+						    <td>Donnelly</td>
+						  </tr>
+						  <tr>
+						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
+						    <td>Missing</td>
+						    <td>Oct 13 2017</td>
+						    <td>Donnelly</td>
+						  </tr>
+						</table>
+					</div>
+					<div id="recentlost">
+			   			<h1>Recently Lost Items</h1>
+			   			<table class="qltable">
+						  <tr>
+						    <th>Item</th>
+						    <th>Status</th> 
+						    <th>Date/Time</th>
+						    <th>Location</th>
+						  </tr>
+						  <tr>
+						    <td><a id="link" href="ql-phone.html">IPhone</a></td>
+						    <td>Missing</td>
+						    <td>Oct 29 2017</td>
+						    <td>Hancock</td>
+						  </tr>
+						  <tr>
+						    <td><a id="link" href="ql-wallet.html">Wallet</a></td>
+						    <td>Found</td>
+						    <td>Sep 13 2017</td>
+						    <td>McCann</td>
+						  </tr>
+						  <tr>
+						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
+						    <td>Missing</td>
+						    <td>Oct 13 2017</td>
+						    <td>Donnelly</td>
+						  </tr>
+						  <tr>
+						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
+						    <td>Missing</td>
+						    <td>Oct 13 2017</td>
+						    <td>Donnelly</td>
+						  </tr>
+						  <tr>
+						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
+						    <td>Missing</td>
+						    <td>Oct 13 2017</td>
+						    <td>Donnelly</td>
+						  </tr>
+						</table>
+		   			</div>
 		   		</div>
-	  		</div>
-	  		<!-- footer -->
-	  		<div id="footer"></div>
-  		<!-- end container -->
- 		</div>
+		   	</div>
+		</div>
+			<!-- footer -->
+			<div id="footer">
+				<div id="footer-content">
+					<p><a href= http://www.marist.edu>Marist College</a> | (845) 575-3000</p>
+					<p>3399 North Road, Poughkeepsie, NY, 12601</p>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
