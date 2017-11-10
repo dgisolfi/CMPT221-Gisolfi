@@ -5,6 +5,16 @@ Version 0.1 -->
 
 <!DOCTYPE HTML>
 <html>
+<?php
+# Connect to MySQL server/database
+require('../scripts/connect_db.php');
+
+# Include helper functions
+require('../scripts/limboFunctions.php');
+
+require('../scripts/showLinkRecords.php');
+
+?>
 	<head>
 		<meta charset = "utf-8">
 		<link rel="stylesheet" type="text/css" href="limboStyle.css"> 
@@ -48,36 +58,10 @@ Version 0.1 -->
 						    <th>Date/Time</th>
 						    <th>Location</th>
 						  </tr>
-						  <tr>
-						    <td><a id="link" href="ql-phone.html">IPhone</a></td>
-						    <td>Missing</td>
-						    <td>Oct 29 2017</td>
-						    <td>Hancock</td>
-						  </tr>
-						  <tr>
-						    <td><a id="link" href="ql-wallet.html">Wallet</a></td>
-						    <td>Found</td>
-						    <td>Sep 13 2017</td>
-						    <td>McCann</td>
-						  </tr>
-						  <tr>
-						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
-						    <td>Missing</td>
-						    <td>Oct 13 2017</td>
-						    <td>Donnelly</td>
-						  </tr>
-						  <tr>
-						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
-						    <td>Missing</td>
-						    <td>Oct 13 2017</td>
-						    <td>Donnelly</td>
-						  </tr>
-						  <tr>
-						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
-						    <td>Missing</td>
-						    <td>Oct 13 2017</td>
-						    <td>Donnelly</td>
-						  </tr>
+			   				<?php
+			   				#Populate recently found items table
+			   				show_link_records($dbc, "found");
+			   				?>
 						</table>
 					</div>
 					<div id="recentlost">
@@ -89,36 +73,13 @@ Version 0.1 -->
 						    <th>Date/Time</th>
 						    <th>Location</th>
 						  </tr>
-						  <tr>
-						    <td><a id="link" href="ql-phone.html">IPhone</a></td>
-						    <td>Missing</td>
-						    <td>Oct 29 2017</td>
-						    <td>Hancock</td>
-						  </tr>
-						  <tr>
-						    <td><a id="link" href="ql-wallet.html">Wallet</a></td>
-						    <td>Found</td>
-						    <td>Sep 13 2017</td>
-						    <td>McCann</td>
-						  </tr>
-						  <tr>
-						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
-						    <td>Missing</td>
-						    <td>Oct 13 2017</td>
-						    <td>Donnelly</td>
-						  </tr>
-						  <tr>
-						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
-						    <td>Missing</td>
-						    <td>Oct 13 2017</td>
-						    <td>Donnelly</td>
-						  </tr>
-						  <tr>
-						    <td><a id="link" href="ql-backpack.html">Backpack</a></td>
-						    <td>Missing</td>
-						    <td>Oct 13 2017</td>
-						    <td>Donnelly</td>
-						  </tr>
+						 	<?php
+						 	#Populate recently lost items table
+						 	show_link_records($dbc, "lost");
+
+						 	# Close the database connection
+						 	mysqli_close($dbc);
+						 	?>
 						</table>
 		   			</div>
 		   		</div>
