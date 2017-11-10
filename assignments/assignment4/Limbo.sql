@@ -42,15 +42,22 @@ CREATE TABLE IF NOT EXISTS locations(
 
 #Populates the locations table
 INSERT INTO locations(create_date, update_date, name)
-VALUES(Now(), Now(), "Donnelly"),
-	  (Now(), Now(), "Hancock"),
-	  (Now(), Now(), "Dyson"),
-	  (Now(), Now(), "Library"),
-	  (Now(), Now(), "McCann"),
-	  (Now(), Now(), "Student Center"),
-	  (Now(), Now(), "Allied Health"),
-	  (Now(), Now(), "Lowell Thomas"),
-	  (Now(), Now(), "Fontain"),
-	  (Now(), Now(), "Steel Plant"),
-	  (Now(), Now(), "51 Fulton");
+VALUES(Now(), Now(), "Library"),
+		(Now(), Now(), "Champagnat Hall"),
+		(Now(), Now(), "Boathouse"),
+		(Now(), Now(), "Donnelly Hall"),
+		(Now(), Now(), "Dyson Center"),
+		(Now(), Now(), "Fontaine  Hall"),
+		(Now(), Now(), "Hancock Center"),
+		(Now(), Now(), "Leo Hall"),
+		(Now(), Now(), "Lowell Thomas"),
+		(Now(), Now(), "Marian Hall"),
+		(Now(), Now(), "McCann Center"),
+		(Now(), Now(), "Mid-Rise Hall"),
+		(Now(), Now(), "North Campus Housing"),
+		(Now(), Now(), "Allied Health"),
+		(Now(), Now(), "Sheahan Hall"),
+		(Now(), Now(), "Steel Plant Studios"),
+		(Now(), Now(), "Student Center"),
+		(Now(), Now(), "51 Fulton");
 
