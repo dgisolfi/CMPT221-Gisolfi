@@ -35,7 +35,7 @@ Version 0.1 -->
 			</div>
 	  		<!-- content area -->
 	  		<div id="content_area">
-		   		<div id="form">
+		   		<div id="entryform">
 		   			<h1> Finder Page </h1>
 					<p>Submit records of found items within the marist campus.</p>
 					<form action="Limbo.php">

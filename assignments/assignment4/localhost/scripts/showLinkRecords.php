@@ -21,12 +21,11 @@ function show_link_records($dbc, $table) {
   		# For each row result, generate a table row
   		while ( $row = mysqli_fetch_array( $results , MYSQLI_ASSOC ) )
   		{
-  			$alink = '<A HREF=linkypresidents.php?id=' . $row['id']  . '>' . $row['name'] . '</A>';
+  			$alink = '<A HREF=viewitem.php?id=' . $row['id']  . '>' . $row['name'] . '</A>';
     		echo '<TR>';
     		echo '<TD>' . $alink . '</TD>';
         	echo '<TD>' . ucwords($row['status']) . '</TD>';
         	echo '<TD>' . date('m/d/Y', strtotime($row['create_date'])) . '</TD>';
-        	//echo '<TD>' . $row['location_id'] . '</TD>';
         	echo '<TD>' . buildingToName($row['location_id']) . '</TD>';
     		echo '</TR>';	
   		}

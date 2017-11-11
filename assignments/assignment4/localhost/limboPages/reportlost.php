@@ -33,7 +33,7 @@ Version 0.1 -->
 			</div>
 	  		<!-- content area -->
 	  		<div id="content_area">
-		   		<div id="form">
+		   		<div id="entryform">
 		   			<h1> Lost Page </h1>
 					<p>Submit records of lost items within the marist campus.</p>
 					<form action="Limbo.php">
