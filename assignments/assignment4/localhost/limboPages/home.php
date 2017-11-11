@@ -12,7 +12,7 @@ require('../scripts/connect_db.php');
 # Include helper functions
 require('../scripts/limboFunctions.php');
 
-require('../scripts/showLinkRecords.php');
+require('../scripts/showQuicklinkRecords.php');
 
 ?>
 	<head>
@@ -60,7 +60,7 @@ require('../scripts/showLinkRecords.php');
 						  </tr>
 			   				<?php
 			   				#Populate recently found items table
-			   				show_link_records($dbc, "found");
+			   				show_quicklink_records($dbc, "found");
 			   				?>
 						</table>
 					</div>
@@ -75,7 +75,7 @@ require('../scripts/showLinkRecords.php');
 						  </tr>
 						 	<?php
 						 	#Populate recently lost items table
-						 	show_link_records($dbc, "lost");
+						 	show_quicklink_records($dbc, "lost");
 
 						 	# Close the database connection
 						 	mysqli_close($dbc);

@@ -3,12 +3,12 @@ $debug = true;
 
 
 # Shows link records
-function show_link_records($dbc, $table) {
+function show_quicklink_records($dbc, $table) {
 	# Create database query for specified table
 	if($table == "found") {
-		$query = "SELECT id, name, status, create_date, location_id FROM stuff WHERE status = 'found' ORDER BY create_date DESC";
+		$query = "SELECT id, name, status, create_date, location_id FROM stuff WHERE status = 'found' ORDER BY create_date DESC LIMIT 5";
 	} else if($table == "lost") {
-		$query = "SELECT id, name, status, create_date, location_id FROM stuff WHERE status = 'lost' ORDER BY create_date DESC";
+		$query = "SELECT id, name, status, create_date, location_id FROM stuff WHERE status = 'lost' ORDER BY create_date DESC LIMIT 5";
 	}
 	
 	# Execute the query
@@ -25,7 +25,6 @@ function show_link_records($dbc, $table) {
     		echo '<TD>' . $alink . '</TD>';
         	echo '<TD>' . ucwords($row['status']) . '</TD>';
         	echo '<TD>' . date('m/d/Y', strtotime($row['create_date'])) . '</TD>';
-        	echo '<TD>' . date('H:i', strtotime($row['create_date'])) . '</TD>';
         	echo '<TD>' . buildingToName($row['location_id']) . '</TD>';
     		echo '</TR>';	
   		}
