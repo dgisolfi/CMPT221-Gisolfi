@@ -36,21 +36,19 @@ function insert_record($dbc, $item,$status, $firstname, $lastname, $location, $d
 }
 
 
-function validateEmail($input){
+function validateName($input){
 	global $dbc;
 
-	#
-	$query = "SELECT email FROM users WHERE lname='" . $input . "'" ;
+	$query = "SELECT first_name FROM users WHERE first_name='" . $input . "'";
 
 	# Execute the query
-  	$results = mysqli_query( $dbc, $query ) ;
+  	$results = mysqli_query($dbc, $query);
   	check_results($results);
 
   	if (mysqli_num_rows( $results ) == 0 ){
-    	return false ;
-  	}else{
-
-  	 return true;
+    	return false;
+  	} else {
+      return true;
  	}
 
 }
@@ -60,10 +58,10 @@ function validatePass($input){
 	global $dbc;
 
 	#Take the pw passed to the function and hash it 
-	$pw = hash($input);
+	#$pw = hash($input);
 
 	#Retrieve password from DB and compare input to the actual value
-	$query = "SELECT pass FROM Users WHERE pass='" . $pw . "'" ;
+	$query = "SELECT pass FROM users WHERE pass='" . $input . "'" ;
 
 	# Execute the query
   	$results = mysqli_query( $dbc, $query ) ;

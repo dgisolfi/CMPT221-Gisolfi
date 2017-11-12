@@ -2,16 +2,45 @@
 Create a site for Limbo using CSS
 Authors: James Ekstract, Daniel Gisolfi
 Version 0.1 -->
+<!DOCTYPE html>
+<html>
+<?php
+#outputs errors for debugging
+ini_set('display_errors', TRUE);
+error_reporting(E_ALL);
 
-<!DOCTYPE HTML>
+require('../scripts/redirect.php');
+require('../scripts/limboFunctions.php');
+
+if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
+	$userName = $_POST['userName'];
+	$pw = $_POST['pw'];
+	#Validate username and password
+	$uVal = validateName($userName);
+	$pVal = validatePass($pw);
+	
+	#Ensures no empty fields
+	if (empty($userName) OR empty($pw)){
+		echo '<p style="color:red">Please complete the form Fully.</p>';
+	#Ensure the username is correct
+	}else if (!$uVal) {
+		echo '<p style="color:red">User Name Invalid for Account</p>';
+	#Ensure the Password is correct
+	}else if (!$pVal){
+		echo '<p style="color:red">Password Invalid for Account</p>';
+	#Else allow for login and redirect
+	}else{
+		redirect('admin.php');
+	}
+}
+?>
+
+
 <html>
 	<head>
-		<meta charset = "utf-8">
 		<link rel="stylesheet" type="text/css" href="limboStyle.css">
-		<title>Limbo - Admin</title>
 	</head>
 	<body>
-		<body>
 		<!-- container -->
 		<div id="container">
 			<!--  header -->
@@ -28,7 +57,7 @@ Version 0.1 -->
 						  		<a href="reportfound.php">Found</a>
 						  	</div>
 						  	</li>
-						  	<li class="adminlink active-page"><a href="AdminLogin.php">Admin</a></li>
+						  	<li class="adminlink"><a href="adminLogin.php">Admin</a></li>
 						</ul>
 					</div>
 				</div>
@@ -37,13 +66,15 @@ Version 0.1 -->
 	  		<div id="content_area">
 		   		<div id="loginform">
 		   			<h1>Confirm Login</h1>
-					<form action="Limbo.php">
+		   			<form action="adminLogin.php" method="POST">
 						<br>User Name:<br>
-		  				<input id="text" name="UserName" value="">
+		  				<input id="text" name="userName" placeholder="Enter Username" value="">
 		  				<br>Password:<br>
-		  				<input id="text" name="PW" value="">
+		  				<input id="text" name="pw" placeholder="Enter Password" value="">
+		  				<br/>
+		  				<p><input id="button" type="submit" value="Login"></p>
 			  		</form> 
-			  		<input id="button" type="submit" value="Login">
+			  		
 	   			 </div>
    			 	<!-- footer -->
 	  			<div id="footer"></div>
