@@ -25,13 +25,24 @@ VALUES("admin", "gaze11e");
 CREATE TABLE IF NOT EXISTS stuff(
 	id 			INT AUTO_INCREMENT 	PRIMARY KEY,
 	location_id INT 		NOT NULL,
+	name 		TEXT 		NOT NULL,
 	description TEXT 		NOT NULL,
-	create_date DATETIME 	NOT NULL,
-	update_date DATETIME 	NOT NULL,
+	create_date DATE 		NOT NULL,
+	update_date DATE 		NOT NULL,
 	room 		TEXT,
 	owner 		TEXT,
 	finder 		TEXT,
 	status 		SET('found','lost', 'claimed') NOT NULL);
+
+INSERT INTO stuff(location_id, name, description, create_date, update_date, room, owner, status)
+VALUES(4, "Hat", "A black baseball cap", "2017-11-10", "2017-11-10", 110, "Daniel Gisolfi", "lost"),
+(7, "iPhone 6S", "Grey iPhone 6S with black silicone case", "2017-10-05", "2017-10-07", 205, "James Ekstract", "lost"),
+(9, "Water bottle", "Green Gaterade water bottle", "2017-11-01", "2017-11-05", 104, "James Ekstract", "lost");
+
+INSERT INTO stuff(location_id, name, description, create_date, update_date, room, finder, status)
+VALUES(12, "Marist ID", "Marist ID with name John Doe", "2017-09-08", "2017-09-10", 227, "Daniel Gisolfi", "found"),
+(15, "Lanyard/keys", "Red Marist lanyard with room and mail key", "2017-10-22", "2017-10-30", 105, "James Ekstract", "found"),
+(18, "Lenovo laptop", "Black Lenovo Ideapad Y700 laptop", "2017-11-03", "2017-11-08", 210, "Daniel Gisolfi", "found");
 
 #Creates the Locations table
 CREATE TABLE IF NOT EXISTS locations(
@@ -42,7 +53,6 @@ CREATE TABLE IF NOT EXISTS locations(
 
 #Populates the locations table
 INSERT INTO locations(create_date, update_date, name)
-<<<<<<< HEAD
 VALUES(Now(), Now(), "Allied Health Science Building"),
 	  (Now(), Now(), "Byrne House"),
 	  (Now(), Now(), "Cannavino Library"),
