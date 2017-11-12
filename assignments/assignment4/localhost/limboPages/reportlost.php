@@ -4,6 +4,18 @@ Authors: James Ekstract, Daniel Gisolfi
 Version 0.1 -->
 <!DOCTYPE HTML>
 <html>
+<?php
+# Connect to MySQL server/database
+require('../scripts/connect_db.php');
+
+# Include helper functions
+require('../scripts/limboFunctions.php');
+
+if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
+	$num = $_POST['num'] ;
+	$fname = $_POST['fname'] ;
+	$lname = $_POST['lname'];
+?>
 	<head>
 		<meta charset = "utf-8">
 		<link rel="stylesheet" type="text/css" href="limboStyle.css">
@@ -38,23 +50,23 @@ Version 0.1 -->
 					<p>Submit records of lost items within the marist campus.</p>
 					<form action="Limbo.php">
 						<br>Item:<br>
-					  	<input id="text" name="item" value="">
+					  	<input id="text" name="item" value="<?php if(isset($_POST['item'])) echo $_POST['item']; ?>">
 					  	<br>Status:<br>
-					  	<input id="text" name="status" value="">
+					  	<input id="text" name="status" value="<?php if(isset($_POST['status'])) echo $_POST['status']; ?>">
 						<br>First name:<br>
-					  	<input id="text" name="firstname" value="">
+					  	<input id="text" name="firstname" value="<?php if(isset($_POST['firstname'])) echo $_POST['firstname']; ?>">
 					  	<br>Last name:<br>
-					  	<input id="text" name="lastname" value="">
+					  	<input id="text" name="lastname" value="<?php if(isset($_POST['lastname'])) echo $_POST['lastname']; ?>">
 					  	<br>Location:<br>
-					  	<input id="text" name="location" value="">
+					  	<input id="text" name="location" value="<?php if(isset($_POST['location'])) echo $_POST['location']; ?>">
 					  	<br>Date:<br>
-					  	<input id="text" name="date" value="">
+					  	<input id="text" name="date" value="<?php if(isset($_POST['date'])) echo $_POST['date']; ?>">
 					  	<br>Email:<br>
-					  	<input id="text" name="email" value="">
+					  	<input id="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>">
 					  	<br>Phone Number:<br>
-					  	<input id="text" name="phonenumber" value="">
+					  	<input id="text" name="phonenumber" value="<?php if(isset($_POST['phonenumber'])) echo $_POST['phonenumber']; ?>">
 					  	<br>Additional Details:<br>
-					  	<input id="text" name="details" value="">
+					  	<input id="text" name="details" value="<?php if(isset($_POST['details'])) echo $_POST['details']; ?>">
 					  	<br><br>
 					  	<input id="button" type="submit" value="Submit">
 			  		</form> 
