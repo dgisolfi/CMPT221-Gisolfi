@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS locations(
 
 #Populates the locations table
 INSERT INTO locations(create_date, update_date, name)
+<<<<<<< HEAD
 VALUES(Now(), Now(), "Allied Health Science Building"),
 	  (Now(), Now(), "Byrne House"),
 	  (Now(), Now(), "Cannavino Library"),
