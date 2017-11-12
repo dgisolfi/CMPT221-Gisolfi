@@ -5,7 +5,7 @@ Version 0.1 -->
 
 <?php
 
-require('scripts/connect_db.php');
+require('connect_db.php');
 
 
 function check_results($results) {
@@ -75,5 +75,24 @@ function validatePass($input){
   		return true;
   	}
 }
+
+
+function buildingToName($id){
+  global $dbc;
+
+  $query = "SELECT name FROM locations WHERE id = " .$id. "";
+
+  $results = mysqli_query($dbc, $query);
+  check_results($results);
+  $row = mysqli_fetch_array($results, MYSQLI_ASSOC);
+  return $row['name'];
+}
+
+function console_log( $data ){
+  echo '<script>';
+  echo 'console.log('. json_encode( $data ) .')';
+  echo '</script>';
+}
+
 
 ?>

@@ -2,11 +2,11 @@
 # CONNECT TO MySQL DATABASE.
 
 
-# Connect  on 'localhost' for user 'root' with password 'root' to database 'site_db'.
+# Connect to the limbo database.
 
 # Otherwise fail gracefully and explain the error. 
 
-$dbc = @mysqli_connect ( 'localhost', 'root', 'root', 'site_db' )
+$dbc = @mysqli_connect ( 'localhost', 'root', '', 'limbo_db' )
 
 
 OR die ( mysqli_connect_error() ) ;
