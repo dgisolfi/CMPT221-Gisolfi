@@ -37,7 +37,7 @@ require('../scripts/showQuicklinkRecords.php');
 						  		<a href="reportfound.php">Found</a>
 						  	</div>
 						  	</li>
-						  	<li class="adminlink"><a href="AdminLogin.php">Admin</a></li>
+						  	<li class="adminlink"><a href="adminLogin.php">Admin</a></li>
 						</ul>
 					</div>
 				</div>
