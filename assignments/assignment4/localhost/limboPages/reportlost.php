@@ -4,7 +4,7 @@ Authors: James Ekstract, Daniel Gisolfi
 Version 0.1 -->
 <!DOCTYPE HTML>
 <html>
-<?php
+<!-- <?php
 # Connect to MySQL server/database
 require('../scripts/connect_db.php');
 
@@ -15,7 +15,7 @@ if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
 	$num = $_POST['num'] ;
 	$fname = $_POST['fname'] ;
 	$lname = $_POST['lname'];
-?>
+?> -->
 	<head>
 		<meta charset = "utf-8">
 		<link rel="stylesheet" type="text/css" href="limboStyle.css">
@@ -38,7 +38,7 @@ if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
 						  		<a href="reportfound.php">Found</a>
 						  	</div>
 						  	</li>
-						  	<li class="adminlink"><a href="AdminLogin.php">Admin</a></li>
+						  	<li class="adminlink"><a href="adminLogin.php">Admin</a></li>
 						</ul>
 					</div>
 				</div>

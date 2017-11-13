@@ -4,6 +4,9 @@ Authors: James Ekstract, Daniel Gisolfi
 Version 0.1 -->
 
 <!DOCTYPE HTML>
+<?php
+require('../scripts/inputRecord.php');
+?>
 <html>
 	<head>
 		<meta charset = "utf-8">
@@ -38,28 +41,22 @@ Version 0.1 -->
 		   		<div id="entryform">
 		   			<h1> Finder Page </h1>
 					<p>Submit records of found items within the marist campus.</p>
-					<form action="Limbo.php">
-						<br>Item:<br>
-					  	<input id="text" name="item" value="">
+					<form action="reportfound.php">
+						<br>Loacation:<br>
+					  	<input id="text" name="location" value="">
+					  	<br>Name:<br>
+					  	<input id="text" name="name" value="">
+						<br>Description:<br>
+					  	<input id="text" name="descrp" value="">
+					  	<br>Room Number:<br>
+					  	<input id="text" name="room" value="">
+					  	<br>Finder:<br>
+					  	<input id="text" name="finder" value="">
 					  	<br>Status:<br>
 					  	<input id="text" name="status" value="">
-						<br>First name:<br>
-					  	<input id="text" name="firstname" value="">
-					  	<br>Last name:<br>
-					  	<input id="text" name="lastname" value="">
-					  	<br>Location:<br>
-					  	<input id="text" name="location" value="">
-					  	<br>Date:<br>
-					  	<input id="text" name="date" value="">
-					  	<br>Email:<br>
-					  	<input id="text" name="email" value="">
-					  	<br>Phone Number:<br>
-					  	<input id="text" name="phonenumber" value="">
-					  	<br>Additional Details:<br>
-					  	<input id="text" name="details" value="">
 					  	<br><br>
-					  	<input id="button" type="submit" value="Submit">
-			  		</form> 
+					  	<input id="button" type="button" onclick="record_ctrl();" value="Submit">
+	  				</form> 
 	   			 </div>
    			 	<!-- footer -->
 	  			<div id="footer"></div>

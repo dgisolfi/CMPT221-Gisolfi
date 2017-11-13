@@ -13,11 +13,11 @@ function redirect($page){
   $url = rtrim($url, '/\\');
   $url .= '/' . $page;
 
-  session_start();
-  header("Location: $url");
+  // session_start();
+  // header("Location: $url");
 
   # Execute redirect then quit.
-  # echo "<script type='text/javascript'> document.location = '$url'; </script>";
+  echo "<script type='text/javascript'> document.location = '$url'; </script>";
 
   exit();
 }
