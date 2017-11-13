@@ -35,6 +35,12 @@ function insert_record($dbc, $item,$status, $firstname, $lastname, $location, $d
   return $results ;
 }
 
+function update_status($dbc, $id, $status) {
+  $query = "UPDATE stuff SET status = '" . $status . "' WHERE id = $id";
+  mysqli_query($dbc, $query);
+  console_log($query);
+}
+
 
 function validateName($input){
 	global $dbc;
@@ -73,7 +79,6 @@ function validatePass($input){
   		return true;
   	}
 }
-
 
 function buildingToName($id){
   global $dbc;
