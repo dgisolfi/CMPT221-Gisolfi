@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS stuff(
 	finder 		TEXT,
 	status 		SET('found','lost', 'claimed') NOT NULL);
 
+# Insert examples into database
 INSERT INTO stuff(location_id, name, description, create_date, update_date, room, owner, status)
 VALUES(4, "Hat", "A black baseball cap", "2017-11-10", "2017-11-10", 110, "Daniel Gisolfi", "lost"),
 (7, "iPhone 6S", "Grey iPhone 6S with black silicone case", "2017-10-05", "2017-10-07", 205, "James Ekstract", "lost"),

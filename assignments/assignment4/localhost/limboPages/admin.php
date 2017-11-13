@@ -6,13 +6,17 @@ Version 0.1 -->
 <!DOCTYPE HTML>
 <html>
 <?php
-# Connect to MySQL server/database
+# Required PHP files to include
 require('../scripts/connect_db.php');
-
-# Include helper functions
 require('../scripts/limboFunctions.php');
-
 require('../scripts/showLinkRecords.php');
+
+# Update the status of an item if it is changed
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+	$id = $_POST['id'];
+	$status = $_POST['status'];
+	update_status($dbc, $id, $status);
+}	   			
 ?>
 	<head>
 		<meta charset = "utf-8">
@@ -47,6 +51,7 @@ require('../scripts/showLinkRecords.php');
 		   		<div id="items">
 		   			<h1>Admin Page</h1>
 					<p> Edit and remove records within the Limbo database</p>
+					<!-- create table -->
 		   			<table class="qltable">
 		   				<tr>
 		   					<th>ID</th>
@@ -60,12 +65,6 @@ require('../scripts/showLinkRecords.php');
 		   			# Populate table with all items from database
 		   			show_link_records($dbc, "admin");
 
-					if($_SERVER['REQUEST_METHOD'] == 'POST') {
-						$id = $_POST['id'];
-						$status = $_POST['status'];
-						update_status($dbc, $id, $status);
-					}
-		   			
 		   			# Close database connection
 		   			mysqli_close($dbc);
 		   			?>

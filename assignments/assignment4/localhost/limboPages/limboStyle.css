@@ -167,7 +167,6 @@ body {
 
 /*Landing page recently found/lost items*/
 #quicktables {
-	width:90%;
 	height:auto;
 	margin:auto;
 	overflow:hidden;
@@ -177,7 +176,7 @@ body {
 	float:left; 
 	width:auto;
 	margin: 10px;
-	margin-left:8%;
+	margin-left:6%;
 	padding:20px; 
 	padding-top:5px;
 	border:1px solid #333; 
@@ -189,7 +188,7 @@ body {
 	float:right;
 	width:auto;
 	margin: 10px;
-	margin-right:8%;
+	margin-right:6%;
 	padding:20px;
 	padding-top:5px;
 	border:1px solid #333; 
@@ -209,6 +208,7 @@ body {
 .qltable th, td {
 	border: 1px solid #ddd;
   	padding: 8px;
+  	white-space:nowrap;
 }
 .qltable th{
  	padding-top: 12px;

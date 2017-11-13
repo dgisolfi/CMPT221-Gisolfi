@@ -35,10 +35,11 @@ function insert_record($dbc, $item,$status, $firstname, $lastname, $location, $d
   return $results ;
 }
 
+# Updates the status of an item in the database; used by the admin page
 function update_status($dbc, $id, $status) {
+  # Create and execute query to update status of item with specified id
   $query = "UPDATE stuff SET status = '" . $status . "' WHERE id = $id";
   mysqli_query($dbc, $query);
-  console_log($query);
 }
 
 

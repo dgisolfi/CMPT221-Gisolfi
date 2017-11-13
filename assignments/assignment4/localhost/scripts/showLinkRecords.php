@@ -19,9 +19,10 @@ function show_link_records($dbc, $table) {
 	# Show results
 	if($results)
 	{
-  		# For each row result, generate a table row
+  		# Generate a table row for each row result
   		while ($row = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
   			if($table == "found" || $table == "lost") {
+  				# Tables for lost and found pages - user view
   				$alink = '<A HREF=viewitem.php?id=' . $row['id']  . '>' . $row['name'] . '</A>';
 	    		echo '<TR>';
 	    		echo '<TD>' . $alink . '</TD>';
@@ -30,28 +31,36 @@ function show_link_records($dbc, $table) {
 	        	echo '<TD>' . date('H:i', strtotime($row['create_date'])) . '</TD>';
 	        	echo '<TD>' . buildingToName($row['location_id']) . '</TD>';
 	    		echo '</TR>';
+
   			} else if($table == "admin") {
+  				# Table for admin page
  				$alink = '<A HREF=viewitem.php?id=' . $row['id']  . '>' . $row['id'] . '</A>';
 	    		echo '<TR>';
+	    		# Start the form for the dropdown menu - each menu is its own form
 				echo "<form action='admin.php' method='POST' name='form'".$row['id'].">";
+				# Hidden input to pass the item ID over POST for updating
 	    		echo '<td><input type=\'hidden\' name=\'id\' value=' . $row['id'] . '>' . $alink . '</td>';
 	    		echo '<TD>' . $row['name'];
 	    		if($row['status'] == "lost") {
+	    			# Generate dropdown options for items with lost status
 					echo "<TD><select name='status' value='" . $row['status'] . "' onchange='this.form.submit()'>";
 					echo "<option value='lost' selected>Lost</option>";
 					echo "<option value='found'>Found</option>";
 					echo "<option value='claimed'>Claimed</option>";
 	    		} else if($row['status'] == "found") {
+	    			# Generate dropdown options for items with found status
 					echo "<TD><select name='status' value='" . $row['status'] . "' onchange='this.form.submit()'>";
 					echo "<option value='lost'>Lost</option>";
 					echo "<option value='found' selected>Found</option>";
 					echo "<option value='claimed'>Claimed</option>";
 	    		} else if($row['status'] == "claimed") {
+	    			# Generate dropdown options for items with claimed status
 					echo "<TD><select name='status' value='" . $row['status'] . "' onchange='this.form.submit()'>";
 					echo "<option value='lost'>Lost</option>";
 					echo "<option value='found'>Found</option>";
 					echo "<option value='claimed' selected>Claimed</option>";	  			
 	    		}
+	    		# End the dropdown menu and form for row
 	    		echo '</select>';
 	    		echo '</form>';
 	    		echo '</TD>';

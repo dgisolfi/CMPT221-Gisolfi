@@ -70,7 +70,7 @@ if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
 						<br>User Name:<br>
 		  				<input id="text" name="userName" placeholder="Enter Username" value="">
 		  				<br>Password:<br>
-		  				<input id="text" name="pw" placeholder="Enter Password" value="">
+		  				<input id="text" type="password" name="pw" placeholder="Enter Password" value="">
 		  				<br/>
 		  				<p><input id="button" type="submit" value="Login"></p>
 			  		</form> 
