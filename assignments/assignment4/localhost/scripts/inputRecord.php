@@ -4,56 +4,56 @@ Authors: James Ekstract, Daniel Gisolfi
 Version 0.1 -->
 
 <?php
-require('connect_db.php')
+require('connect_db.php');
 require('limboFunctions.php');
 
-function record_ctrl($claimStatus){
-
+function record_ctrl(){
 	if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
+		$status = $_POST['status'];
 		
-		if ($claimStatus == "lost"){
-				insert_lost_record($dbc);
-		}else if ($claimStatus == "found"){
-				insert_lost_record($dbc);
+		if ($status == "lost"){
+				insert_lost_record($dbc, $status);
+		}else if ($status == "found"){
+				insert_lost_record($dbc, $status);
 		}else{
 			echo "Not a valid status";
 		}
-
-		if (!$result){
-			echo "Please submit a valid record!";
-		}else{
-			echo "Record Saved in Database";
-		}
 	}
 }
-function insert_lost_record($dbc){
+
+function insert_lost_record($dbc, $status){
 	$loc = $_POST['location'];
 	$descrp = $_POST['description'];
-	$date = $_POST['date'];
 	$room = $_POST['room'];
 	$owner = $_POST['owner'];
-	$status = $_POST['status'];
 
-	$sql = "INSERT INTO stuff (location_id, description, create_date, room, owner, finder, status) VALUES('" . $loc . "', '" .$descrp . "', '" . $date ."', '" . $room ."', '". $owner. "', '" . $finder ."', '" . $status. "')";
+	$sql = "INSERT INTO stuff (location_id, description, create_date, room, owner, finder, status) VALUES('" . $loc . "', '" .$descrp . "', 'NOW();', '" . $room ."', '". $owner. "', '" . $finder ."', '" . $status. "')";
 		
 	$result = mysqli_query( $dbc , $sql );
 	check_results($result);
-	return $result;
+	alert($result);
 }
 
-function insert_found_record(){
+function insert_found_record($dbc, $status){
 	$loc = $_POST['location'];
 	$descrp = $_POST['description'];
 	$date = $_POST['date'];
 	$room = $_POST['room'];
 	$finder = $_POST['finder'];
-	$status = $_POST['status'];
 
 	$sql = "INSERT INTO stuff (location_id, description, create_date, room, owner, finder, status) VALUES('" . $loc . "', '" .$descrp . "', '" . $date ."', '" . $room ."', '". $owner. "', '" . $finder ."', '" . $status. "')";
 		
 	$result = mysqli_query( $dbc , $sql );
 	check_results($result);
-	return $result;
+	alert($result);
+}
+
+function alert($result){
+	if (!$result){
+			echo "Please submit a valid record!";
+		}else{
+			echo "Record Saved in Database";
+	}
 }
 
 ?>
