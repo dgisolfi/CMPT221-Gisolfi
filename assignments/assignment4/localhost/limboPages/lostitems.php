@@ -59,6 +59,7 @@ require('../scripts/showLinkRecords.php');
 		   			#Close database connection
 		   			mysqli_close($dbc);
 		   			?>
+		   		</table>
 	  			</div>
 	  		</div>
 	  		<!-- footer -->
