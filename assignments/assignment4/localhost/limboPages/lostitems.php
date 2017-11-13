@@ -45,6 +45,7 @@ require('../scripts/showLinkRecords.php');
 	  		<div id="content_area">
 		   		<div id="items">
 		   			<h1>Found Items</h1>
+		   			<!-- create the table -->
 		   			<table class="qltable">
 		   				<tr>
 		   					<th>Name</th>

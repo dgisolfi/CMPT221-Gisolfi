@@ -6,14 +6,10 @@ Version 0.1 -->
 <!DOCTYPE HTML>
 <html>
 <?php
-# Connect to MySQL server/database
+# Required PHP files to include
 require('../scripts/connect_db.php');
-
-# Include helper functions
 require('../scripts/limboFunctions.php');
-
 require('../scripts/showQuicklinkRecords.php');
-
 ?>
 	<head>
 		<meta charset = "utf-8">
@@ -26,7 +22,9 @@ require('../scripts/showQuicklinkRecords.php');
 			<!--  header -->
 			<div id="header">
 				<div id="header-content">
+					<!-- logo/home link -->
 					<div id="logo"><span title="Home"><a href="home.php"><img src="limbologo.png"></a></span></div>
+					<!-- navbar -->
 		  			<div class="navbar">
 			   			<ul>
 						  	<li><a href="founditems.php">Found Items</a></li>
@@ -44,10 +42,12 @@ require('../scripts/showQuicklinkRecords.php');
 			</div>
 			<!-- content area -->
 			<div id="content_area">
+				<!-- homepage welcome message/title -->
 				<div id="banner">
 					<h1>Limbo</h1>
 					<p>Marist College Lost and Found</p>
 				</div>
+				<!-- recently found/lost items on landing page -->
 				<div id=quicktables>
 					<div id="recentfound">
 			   			<h1>Recently Found Items</h1>

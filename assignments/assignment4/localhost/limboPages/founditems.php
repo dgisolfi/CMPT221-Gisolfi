@@ -6,12 +6,9 @@ Version 0.1 -->
 <!DOCTYPE HTML>
 <html>
 <?php
-# Connect to MySQL server/database
+# Required PHP files to include
 require('../scripts/connect_db.php');
-
-# Include helper functions
 require('../scripts/limboFunctions.php');
-
 require('../scripts/showLinkRecords.php');
 ?>
 	<head>
@@ -45,6 +42,7 @@ require('../scripts/showLinkRecords.php');
 	  		<div id="content_area">
 		   		<div id="items">
 		   			<h1>Found Items</h1>
+		   			<!-- create table -->
 		   			<table class="qltable">
 		   				<tr>
 		   					<th>Name</th>
