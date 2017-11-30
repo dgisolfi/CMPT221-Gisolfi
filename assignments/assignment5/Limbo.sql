@@ -34,8 +34,6 @@ CREATE TABLE IF NOT EXISTS stuff(
 	create_date DATE 		NOT NULL,
 	update_date DATE,
 	room 		TEXT,
-	owner 		TEXT,
-	finder 		TEXT,
 	status 		SET('found','lost', 'claimed') NOT NULL);
 
 # Insert examples into database
