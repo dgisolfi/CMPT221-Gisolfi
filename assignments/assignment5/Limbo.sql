@@ -37,15 +37,15 @@ CREATE TABLE IF NOT EXISTS stuff(
 	status 		SET('found','lost', 'claimed') NOT NULL);
 
 # Insert examples into database
-INSERT INTO stuff(location_id, name, description, create_date, update_date, room, owner, status)
-VALUES(4, "Hat", "A black baseball cap", "2017-11-10", "2017-11-10", 110, "Daniel Gisolfi", "lost"),
-(7, "iPhone 6S", "Grey iPhone 6S with black silicone case", "2017-10-05", "2017-10-07", 205, "James Ekstract", "lost"),
-(9, "Water bottle", "Green Gaterade water bottle", "2017-11-01", "2017-11-05", 104, "James Ekstract", "lost");
+INSERT INTO stuff(location_id, name, description, create_date, update_date, room, owner_fname, owner_lname, status)
+VALUES(4, "Hat", "A black baseball cap", "2017-11-10", "2017-11-10", 110, "Daniel", "Gisolfi", "lost"),
+(7, "iPhone 6S", "Grey iPhone 6S with black silicone case", "2017-10-05", "2017-10-07", 205, "Maya", "James", "lost"),
+(9, "Water bottle", "Green Gaterade water bottle", "2017-11-01", "2017-11-05", 104, "James", "Ekstract", "lost");
 
-INSERT INTO stuff(location_id, name, description, create_date, update_date, room, finder, status)
-VALUES(12, "Marist ID", "Marist ID with name John Doe", "2017-09-08", "2017-09-10", 227, "Daniel Gisolfi", "found"),
-(15, "Lanyard/keys", "Red Marist lanyard with room and mail key", "2017-10-22", "2017-10-30", 105, "James Ekstract", "found"),
-(18, "Lenovo laptop", "Black Lenovo Ideapad Y700 laptop", "2017-11-03", "2017-11-08", 210, "Daniel Gisolfi", "found");
+INSERT INTO stuff(location_id, name, description, create_date, update_date, room, finder_fname, finder_lname, status)
+VALUES(12, "Marist ID", "Marist ID with name John Doe", "2017-09-08", "2017-09-10", 227, "Daniel" "Gisolfi", "found"),
+(15, "Lanyard/keys", "Red Marist lanyard with room and mail key", "2017-10-22", "2017-10-30", 105, "James" "Ekstract", "found"),
+(18, "Lenovo laptop", "Black Lenovo Ideapad Y700 laptop", "2017-11-03", "2017-11-08", 210, "Daniel", "Gisolfi", "found");
 
 #Creates the Locations table
 CREATE TABLE IF NOT EXISTS locations(
