@@ -8,6 +8,7 @@ require('connect_db.php');
 require('limboFunctions.php');
 
 function record_ctrl($status){
+
 	global $dbc;
 	if ($status == "lost"){
 			insert_lost_record($dbc, $status);
