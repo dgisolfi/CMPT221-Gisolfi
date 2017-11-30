@@ -26,12 +26,14 @@ CREATE TABLE IF NOT EXISTS stuff(
 	id 			INT AUTO_INCREMENT 	PRIMARY KEY,
 	location_id INT 		NOT NULL,
 	name 		TEXT 		NOT NULL,
-	description TEXT 		NOT NULL,
+	owner_fname	TEXT, 
+	owner_lname	TEXT,
+	finder_fname	TEXT,
+	finder_lname	TEXT,
+	description TEXT,
 	create_date DATE 		NOT NULL,
-	update_date DATE 		NOT NULL,
+	update_date DATE,
 	room 		TEXT,
-	owner 		TEXT,
-	finder 		TEXT,
 	status 		SET('found','lost', 'claimed') NOT NULL);
 
 # Insert examples into database
