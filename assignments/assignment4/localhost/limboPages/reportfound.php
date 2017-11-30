@@ -6,6 +6,10 @@ Version 0.1 -->
 <!DOCTYPE HTML>
 <?php
 require('../scripts/inputRecord.php');
+
+if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
+	$status = $_POST['status'];
+	submitrecord_ctrl($status);
 ?>
 <html>
 	<head>
@@ -52,10 +56,9 @@ require('../scripts/inputRecord.php');
 					  	<input id="text" name="room" value="">
 					  	<br>Finder:<br>
 					  	<input id="text" name="finder" value="">
-					  	<br>Status:<br>
-					  	<input id="text" name="status" value="">
 					  	<br><br>
-					  	<input id="button" type="button" onclick="record_ctrl();" value="Submit">
+					  	<input id="button" type="hidden" value="Submit">
+					  	<input type="hidden" name="status" value="found">
 	  				</form> 
 	   			 </div>
    			 	<!-- footer -->

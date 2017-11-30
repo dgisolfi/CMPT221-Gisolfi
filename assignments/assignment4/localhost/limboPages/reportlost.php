@@ -4,18 +4,18 @@ Authors: James Ekstract, Daniel Gisolfi
 Version 0.1 -->
 <!DOCTYPE HTML>
 <html>
-<!-- <?php
-# Connect to MySQL server/database
+
+Connect to MySQL server/database
 require('../scripts/connect_db.php');
 
 # Include helper functions
 require('../scripts/limboFunctions.php');
-
+<?php
 if ($_SERVER[ 'REQUEST_METHOD' ] == 'POST') {
 	$num = $_POST['num'] ;
 	$fname = $_POST['fname'] ;
 	$lname = $_POST['lname'];
-?> -->
+?>
 	<head>
 		<meta charset = "utf-8">
 		<link rel="stylesheet" type="text/css" href="limboStyle.css">
