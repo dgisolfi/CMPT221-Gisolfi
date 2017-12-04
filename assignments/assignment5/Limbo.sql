@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS stuff(
 	owner_lname	TEXT,
 	finder_fname	TEXT,
 	finder_lname	TEXT,
+	claim_contact TEXT,
 	description TEXT,
 	create_date DATE 		NOT NULL,
 	update_date DATE,
